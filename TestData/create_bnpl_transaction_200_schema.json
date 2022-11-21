@@ -1,0 +1,69 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome9",
+    "definitions": {
+        "Welcome9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome9"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "application_token": {
+                    "type": "string"
+                },
+                "application": {
+                    "$ref": "#/definitions/Application"
+                }
+            },
+            "required": [
+                "application",
+                "application_token"
+            ],
+            "title": "Data"
+        },
+        "Application": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "line_application_reference_number": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "line_application_reference_number",
+                "status"
+            ],
+            "title": "Application"
+        }
+    }
+}

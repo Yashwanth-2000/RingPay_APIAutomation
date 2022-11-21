@@ -1,0 +1,3405 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+	<link href='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Automation Reports</title>
+
+	<style type='text/css'>
+		/* json-tree */
+		.jstBracket,.jstComma,.jstValue{white-space:pre-wrap}.jstValue{font-size:10px;font-weight:400;font-family:"Lucida Console",Monaco,monospace}.jstProperty{color:#666;word-wrap:break-word}.jstBool{color:#2525CC}.jstNum{color:#D036D0}.jstNull{color:gray}.jstStr{color:#2DB669}.jstFold:after{content:' -';cursor:pointer}.jstExpand{white-space:normal}.jstExpand:after{content:' +';cursor:pointer}.jstFolded{white-space:normal!important}.jstHiddenBlock{display:none}
+			
+            
+                 .report-name { padding-left: 10px; } .report-name > img { float: left;height: 90%;margin-left: 90px;margin-top: 2px;width: 50px; }
+            
+		
+	</style>
+	
+	<script type="text/javascript">
+		/*! json-tree - v0.2.2 - 2017-09-25, MIT LICENSE */
+		var JSONTree=function(){var n={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#x27;","/":"&#x2F;"},t=0,r=0;this.create=function(n,t){return r+=1,N(u(n,0,!1),{class:"jstValue"})};var e=function(t){return t.replace(/[&<>'"]/g,function(t){return n[t]})},s=function(){return r+"_"+t++},u=function(n,t,r){if(null===n)return f(r?t:0);switch(typeof n){case"boolean":return l(n,r?t:0);case"number":return i(n,r?t:0);case"string":return o(n,r?t:0);default:return n instanceof Array?a(n,t,r):c(n,t,r)}},c=function(n,t,r){var e=s(),u=Object.keys(n).map(function(r){return j(r,n[r],t+1,!0)}).join(m()),c=[g("{",r?t:0,e),N(u,{id:e}),p("}",t)].join("\n");return N(c,{})},a=function(n,t,r){var e=s(),c=n.map(function(n){return u(n,t+1,!0)}).join(m());return[g("[",r?t:0,e),N(c,{id:e}),p("]",t)].join("\n")},o=function(n,t){var r=e(JSON.stringify(n));return N(v(r,t),{class:"jstStr"})},i=function(n,t){return N(v(n,t),{class:"jstNum"})},l=function(n,t){return N(v(n,t),{class:"jstBool"})},f=function(n){return N(v("null",n),{class:"jstNull"})},j=function(n,t,r){var s=v(e(JSON.stringify(n))+": ",r),c=N(u(t,r,!1),{});return N(s+c,{class:"jstProperty"})},m=function(){return N(",\n",{class:"jstComma"})},N=function(n,t){return d("span",t,n)},d=function(n,t,r){return"<"+n+Object.keys(t).map(function(n){return" "+n+'="'+t[n]+'"'}).join("")+">"+r+"</"+n+">"},g=function(n,t,r){return N(v(n,t),{class:"jstBracket"})+N("",{class:"jstFold",onclick:"JSONTree.toggle('"+r+"')"})};this.toggle=function(n){var t=document.getElementById(n),r=t.parentNode,e=t.previousElementSibling;""===t.className?(t.className="jstHiddenBlock",r.className="jstFolded",e.className="jstExpand"):(t.className="",r.className="",e.className="jstFold")};var p=function(n,t){return N(v(n,t),{})},v=function(n,t){return Array(2*t+1).join(" ")+n};return this}();
+	</script>
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo black"><img src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png"></a>
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
+		</ul>
+		<!-- report name -->
+		<span class='report-name'>Zee Automation Demo</span>
+		<!-- report headline -->
+		<span class='report-headline'></span>
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+			<span class='label blue darken-3 suite-start-time'>Nov 9, 2022 05:02:56 PM</span>
+			</a>
+		</ul>
+	</div>
+</nav>		<!-- container -->
+		<div class='container'>
+<div id='test-view' class='view'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+				<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+			<!-- category toggle -->
+			<!-- category toggle -->
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+				<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+				<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+<div id='test-view-charts' class='subview-full'>
+    <div id='charts-row' class='row nm-v nm-h'>
+        <div class='col s12 m12 l12 np-h'>
+            <div class='card-panel nm-v'>
+                <div class='left panel-name'>Tests</div>
+                <div class='chart-box' style="max-height:94px;">
+                    <canvas id='parent-analysis' width='90' height='70'></canvas>
+                </div>
+                <div class='block text-small'>
+                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>7</span> test(s) passed</span>
+                </div>
+                <div class='block text-small'>
+                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="timeline-chart" class="row nm-v nm-h">
+        <div class="col s12 m12 l12 np-h">
+            <div class="card-panel">
+                <div class='left panel-name'>Timeline (seconds)</div>
+                <div class="chart-box" style="width:98%;max-height:145px;">
+                    <canvas id="timeline" height="120"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='test-collection' class='test-collection'>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>user_200</span>
+						<span class='test-time'>Nov 9, 2022 05:02:56 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:02:56 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+510ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:02:59 PM</td>
+				<td class='step-details'>
+						Request Url -->https://testing-gateway.test.paywithring.com/api/v1/mock-data/user
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:02:59 PM</td>
+				<td class='step-details'>
+						Request :{"gender":"male","encrypted_name":"K3sKqgjdMfFET4s0Me7WwmpuJLLKr0wyWl6SyqviOQE="}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:02:59 PM</td>
+				<td class='step-details'>
+						Response Body= {"data":{"request_id":"","success":true,"response_code":0,"message":"Success","http_code":200,"data":{"gender":"male","first_name":"Moti","middle_name":"Govind","last_name":"Ramaswamy","mother_name":"Zara","full_name":"Moti Govind Ramaswamy","dob":"1986-09-19","mobile_number":"6415786430","otp":888888,"email":"MotiRamaswamy83102@example.net","pan":"AIWPQ4433L","aadhaar":"254414574150","pan_status":2,"actual_pan_status":"E","dob_verification_status":"VERIFIED","imei":"350577750162185","advertising_id":"183276368029661","android_id":"69c4a4e60604c323","source_app":"RUFILO","transaction_source":"MERCHANT_APP","lat":"17.993764","long":"82.998582","transaction_latitude":"17.993764","transaction_longitude":"82.998582","bank_account":{"bank_account_no":"376194","bank_branch_ifsc":"ICIC0000011","bank_account_type":"SAVINGS","bank_account_holder_name":"Moti Govind Ramaswamy","is_verified":1,"is_digi_verified":1,"is_imps_verified":"SUCCESS","verification_type":"PENNY_DROP","verification_attempts":1,"verified_name":"Moti Govind Ramaswamy","verified_name_match":100},"present_address":{"address_reference_number":"RADD2350406388098093","room_number":"81","line_1":"79, Hadapsar,","line_2":"Sampath Street","landmark":"Kata Street","pincode":"400080","label":"present_address","tag":"HOME","source":"RUFILO"},"gross_monthly_salary":76802,"employment_type":"SELF_EMPLOYED","employer_name":"Jhaveri, Mane and Mital Inc","working_since":"2014-04-17","photo_image":{"storage_path":"\/var\/www\/testing-service.test.tradofina.com\/storage\/app\/public\/photo\/tester\/yashwanth_ramaswamy.png","asset_path":"http:\/\/testing-service.test.ideopay.in\/storage\/photo\/tester\/yashwanth_ramaswamy.png"},"pan_image":{"storage_path":"\/var\/www\/testing-service.test.tradofina.com\/storage\/app\/public\/generated_documents\/pan\/6415786430.png","asset_path":"http:\/\/testing-service.test.ideopay.in\/storage\/generated_documents\/pan\/6415786430.png"},"aadhaar_front_image":{"storage_path":"\/var\/www\/testing-service.test.tradofina.com\/storage\/app\/public\/generated_documents\/aadhaar\/6415786430-front.png","asset_path":"http:\/\/testing-service.test.ideopay.in\/storage\/generated_documents\/aadhaar\/6415786430-front.png"},"aadhaar_back_image":{"storage_path":"\/var\/www\/testing-service.test.tradofina.com\/storage\/app\/public\/generated_documents\/aadhaar\/6415786430-back.png","asset_path":"http:\/\/testing-service.test.ideopay.in\/storage\/generated_documents\/aadhaar\/6415786430-back.png"}}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:01 PM</td>
+				<td class='step-details'>
+						Mock_User,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						user_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>onloaduser_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:02 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:02 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+515ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/onload/data
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766935817783294","success":true,"response_code":0,"message":"Success","data":{"android":{"MAXIMUM_VERSION_CODE":"1","MINIMUM_VERSION_CODE":"1","IS_SAFETYNET_CHECK_ENABLED":false,"SMS_BASED_VERIFICATION":"1"}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						Onload,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						Onload,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:02 PM</td>
+				<td class='step-details'>
+						onloaduser_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>get_vpn_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:02 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+936ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/merchants/details/get-by-vpa?vpa=rpy.ipmerchant1234193162@icici
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Request :{"vpa":"rpy.ipmerchant1234193162@icici"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7661935824187145","success":true,"response_code":0,"message":"Success","data":{"merchant_details":{"merchant_reference_number":"MERT665184239889LQ18","site_reference_number":"SITE165684239814YJIF","vpa":"rpy.ipmerchant1234193162@icici","qr_type":"PHYSICAL","is_active":1,"account_short_code":193162,"mobile_number":9874198744,"alternate_mobile_number":9797668959,"company_name":"Ring type 4","status":"ACTIVE","onboarding_type":"type4","bnpl_first_transaction_limit":"5000000000000000","bnpl_first_transaction_limit_msg":"You can pay upto \u20b95000000000000000 in your first transaction without any additional charges","created_at":"2022-05-19 16:21:44","bnpl_first_transaction_fees_msg":"Yay! Zero fees and up to 40% cashback* on this transaction.","first_transaction_messages":{"line_1":"Zero fees on all your transactions & get a chance to win instant cashback of upto 40%","line_2":""}}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating status is Active
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:03 PM</td>
+				<td class='step-details'>
+						get_vpn_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='4'>
+					<div class='test-heading'>
+						<span class='test-name'>otp_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:03 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:03 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+742ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616935833123298","success":true,"response_code":0,"message":"Success","data":{"user_exists":false}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should be false
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"989324"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766935838867913","success":false,"response_code":101,"message":"The mobile number must be at least 10 characters."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						lessthan10digit_400,Validating 400 Bad Request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:04 PM</td>
+				<td class='step-details'>
+						lessthan10digit_400,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"913749014423"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6176935843664862","success":false,"response_code":101,"message":"The mobile number may not be greater than 10 characters."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						morethan10digit_400,Validating 400 Bad Request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						morethan10digit_400,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"987655678$"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7661935847696812","success":false,"response_code":101,"message":"The mobile number format is invalid."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						specialCharacterInField_400,Validating 400 Bad Request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:05 PM</td>
+				<td class='step-details'>
+						specialCharacterInField_400,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6761935853888269","success":true,"response_code":0,"message":"Success","data":{"user_exists":false}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should be false
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						otp_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>auth_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:06 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 5s+234ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7166935858582157","success":true,"response_code":0,"message":"Success","data":{"user_exists":false}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:06 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671935865276412","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmMjE0OTA0ZjZiN2NlNjIyYjg0YWFiMGM4MiIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU4NiwibmJmIjoxNjY3OTkzNTg2LCJleHAiOjE2NjgwNzk5ODYsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.d8UEHG70wEzny8p959SgERHGMNvRA2yqIxbICBPtPjA","encrypted_user_reference_number":"eyJpdiI6InNiM3FrbGQ2b1Mvb1FrWXlUeGtJN2c9PSIsInZhbHVlIjoicUtlc2FMRnhMc0QwK0Y4WW9tQ1ZvRlo1bWphWUdQaFFxVHlmUmQ0LzJJUT0iLCJtYWMiOiI3ZmU4ODFiYWE5NDIwNWE1NzVkNWY2M2I5MjdjMmE2YmQ5ZDU3NjA1YmI3YmM3OWE5OTBiMzI1YWNjMTBhMDAxIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:07 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:08 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:08 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"125111","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:08 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716935875515924","success":false,"response_code":101,"message":"Otp does not match or have expired"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:08 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:08 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"555555","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716935883526187","success":false,"response_code":101,"message":"Otp does not match or have expired"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"11111A","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671935898168793","success":false,"response_code":101,"message":"Otp does not match or have expired"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:09 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"789","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616935894246381","success":false,"response_code":101,"message":"Otp does not match or have expired"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716935899363271","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:10 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1676935984474368","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmNjUyYzM1YzU0MzA5OTI3YWQzNDVlNGY3NyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU5MCwibmJmIjoxNjY3OTkzNTkwLCJleHAiOjE2NjgwNzk5OTAsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.btMDuOo3h1fBrF3k_3TGskz1fX-F3Z4RzsAAqKbmXaM","encrypted_user_reference_number":"eyJpdiI6ImhVekVEOWlPZmpGTzF3aWE5aVFsY2c9PSIsInZhbHVlIjoiMFlIOEtteHJYYVFYYkZrT3ZpaXBoRU5SU1dhMGpuVVdpWDYySGVtRTRhYz0iLCJtYWMiOiJjYWU3MWNiMjAyYzlhODIxZDIzM2Q3ZDE5MTgyM2EwYjExY2NlOGIzZmU4NjZkODQzMTcwNjI3MDQxMWY2Y2MwIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:11 PM</td>
+				<td class='step-details'>
+						auth_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='6'>
+					<div class='test-heading'>
+						<span class='test-name'>Update_User_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:11 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:11 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 25s+875ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766935913739837","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6761935918391963","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmODI1ZTVjNjA3ZTE3NDQ5M2MxOTViMzgzZSIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU5MiwibmJmIjoxNjY3OTkzNTkyLCJleHAiOjE2NjgwNzk5OTIsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.sEhRk4yfIcBmsd3onXwrSQpqPErc6KlKNHLCLi7UQbw","encrypted_user_reference_number":"eyJpdiI6IndqVDJjMFdyNU4xUGZnV3o1NjNxSkE9PSIsInZhbHVlIjoiNW9WRnBFMHIzdFdJY2NKMG13SmRzRmtlcFBUQnR1UzNpU0pYUDQrbHMzZz0iLCJtYWMiOiIwNzdiY2E5YmY5NTNjNTRmNjZhMzY0ZWZiMmI0YTJjMDRiMDM4M2E0YzYyZjZkNzAxZjUzNzFhMzAzYTNhMDA0IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:12 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1676935927778935","success":true,"response_code":0,"message":"Success","data":{"user":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","short_user_reference_number":null,"created_at":"2022-11-09T11:33:06.000000Z","first_name":"sunil","middle_name":"Lavakumar","last_name":"Chatla","mobile_number":6415786430,"dob":"1986-09-19","yob":"1986","gender":null,"email":"MotiRamaswamy83102@example.net","pan_hash":null,"pan_masked":null,"residence_type":null,"employment_type":null,"uid":null,"uid_hash":null,"uid_masked":null,"present_address_reference_number":null,"is_name_verified":null,"is_mobile_verified":"1","is_dob_verified":null,"is_pan_verified":null,"is_gender_verified":null,"name_verification_status":"PENDING","mobile_verification_status":"VERIFIED","pan_verification_status":"PENDING","dob_verification_status":"PENDING","yob_verification_status":"PENDING","gender_verification_status":"PENDING","is_nsdl_pan_verified":"0","nsdl_pan_user_name":null,"reapply_date":null,"profile_category":null,"payment_short_url":null,"source_app":"IDEOPAY","language_preference":null,"is_fraud":0,"is_subsidiaries_fa":0,"account_create_source":null,"razorpayx_customer_id":null,"razorpayx_mid_customer_id":null,"purple_reapply_date":null,"gcm_id":null,"ios_gcm_id":null,"kissht_user_reference_number":null,"is_active_loc":"inactive","source_financier":null,"eligible_source":null,"present_employment_reference_number":null,"references_details":null,"merchant_reference_number":"MERT665184239889LQ18","android_app_version":49,"subsidiaries_updated_at":null,"onboarding_stage":"PENDING","marital_status":null,"mother_name":"Zara","bureau_reference_number":null,"kyc_re_verification_band":"","spouse_name":"","contact_reference_number":"","relationship":"","father_name":""}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716935937889481","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:14 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616935944362163","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmYWM3NTVlNWVhOTg5ZjAwNzE1NWU3OWI3MyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU5NCwibmJmIjoxNjY3OTkzNTk0LCJleHAiOjE2NjgwNzk5OTQsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.0RaAmOxIRSw6rtBId1XOz8viyceUbMrFBNNey08S3As","encrypted_user_reference_number":"eyJpdiI6Im9oV0ptRUFnYTRhamFkWE1qay96TEE9PSIsInZhbHVlIjoickJpMjJqdEppS2xvTlZXU2lwTlBkUHplZy9mTEZhVG83Vzc4WWhQdjFpND0iLCJtYWMiOiJhYzk1ODQyYzNjMmExZGEwYTJhNWQ2ZjIzY2JjZDVlNGUzZDQ5NmFlMTZiYWViYThjNGZjYjJiNzQzMDVkYmY1IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:15 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6761935953276475","success":false,"response_code":101,"message":"The first name format is invalid."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						alphaNumeric_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						alphaNumeric_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6617935956985946","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:16 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1676935963872458","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmY2YwYmIyY2FhMTk1MzkwMDhmNGJmMzgyOCIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU5NiwibmJmIjoxNjY3OTkzNTk2LCJleHAiOjE2NjgwNzk5OTYsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.9wYOcRdeJefGZdl1SRQKMauOOROOLmC0HNcK7Iib6F0","encrypted_user_reference_number":"eyJpdiI6IjZnY3A4MnZJMDhlWWd4bC9BbTBxdkE9PSIsInZhbHVlIjoia3VMRkNJa0d6UFAwZEtZTFpXRjNHWFBSU1VmMkVKVWdIMWc0VGViZ3FLVT0iLCJtYWMiOiIyNDc5ZDI3YWJjODcyYWEyMzIwMWJkOGZlZDgzNGRlODE5YmI4ZjJhNGUyMWFlMDUxYWJkYzY4OGU0MzZjOTc3IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716935971617965","success":false,"response_code":101,"message":"The first name format is invalid."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						specialCharacterInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:17 PM</td>
+				<td class='step-details'>
+						specialCharacterInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766935975975723","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:18 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7166935989739376","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOGZmZjJhODk3NzFjMDcyMDIzMmYwMTA5NjMwNiIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzU5OSwibmJmIjoxNjY3OTkzNTk5LCJleHAiOjE2NjgwNzk5OTksInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.QoXUkbYw-ZUDghU9VbZaO1qjKrlrpsgszEOTZYDdCxM","encrypted_user_reference_number":"eyJpdiI6IlVPYzNrRTEreGpJNGgrZkpVZVRIZUE9PSIsInZhbHVlIjoiQXBnQ1dRelphdFUreENSQTlJdnYxM2luRnlhTTFNVGJwTENQdHZwOEpPYz0iLCJtYWMiOiI4NjE4NWJlYzBmMjc4M2UwMDgxYjU1ZmU3ODUxZDRhNDQ5MzdhODNlM2NlOTUwZmFiMWViZTFmMTE0YjhhYTE5IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671935997888239","success":false,"response_code":101,"message":"The first name field is required."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:20 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671936882113849","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:21 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616936888495294","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwMWUzNGU5ODgzZWFhZmE5ZmY1MGNhZjI2MyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYwMSwibmJmIjoxNjY3OTkzNjAxLCJleHAiOjE2NjgwODAwMDEsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.P178TTNNyg-JE19HRrMJF5XikguIBf1KKBYyyuWtKKU","encrypted_user_reference_number":"eyJpdiI6IjI0dFF1VTZRdVN6T2NYS21BOSt1c3c9PSIsInZhbHVlIjoiOUc4SVViT08xOHM2TmhCWkptNkx3RTlVQUdVbXkxVEY2NFF5VEN1QUJIRT0iLCJtYWMiOiIwZmRlOWVmNjQ2NzBlMGRlZWM4MjA0NmY4MzcwZTIyZjg5MjdiMDQzYTYzYTFiOTI1NTc4YTYzMjBmZTc2YjQxIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716936816682165","success":true,"response_code":0,"message":"Success","data":{"user":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","short_user_reference_number":null,"created_at":"2022-11-09T11:33:06.000000Z","first_name":"sunil","middle_name":"Lavakumar","last_name":"Chatla","mobile_number":6415786430,"dob":"1986-09-19","yob":"1986","gender":null,"email":"MotiRamaswamy83102@example.net","pan_hash":null,"pan_masked":null,"residence_type":null,"employment_type":null,"uid":null,"uid_hash":null,"uid_masked":null,"present_address_reference_number":null,"is_name_verified":null,"is_mobile_verified":"1","is_dob_verified":null,"is_pan_verified":null,"is_gender_verified":null,"name_verification_status":"PENDING","mobile_verification_status":"VERIFIED","pan_verification_status":"PENDING","dob_verification_status":"PENDING","yob_verification_status":"PENDING","gender_verification_status":"PENDING","is_nsdl_pan_verified":"0","nsdl_pan_user_name":null,"reapply_date":null,"profile_category":null,"payment_short_url":null,"source_app":"IDEOPAY","language_preference":null,"is_fraud":0,"is_subsidiaries_fa":0,"account_create_source":null,"razorpayx_customer_id":null,"razorpayx_mid_customer_id":null,"purple_reapply_date":null,"gcm_id":null,"ios_gcm_id":null,"kissht_user_reference_number":null,"is_active_loc":"inactive","source_financier":null,"eligible_source":null,"present_employment_reference_number":null,"references_details":null,"merchant_reference_number":"MERT665184239889LQ18","android_app_version":49,"subsidiaries_updated_at":null,"onboarding_stage":"PENDING","marital_status":null,"mother_name":"Zara","bureau_reference_number":null,"kyc_re_verification_band":"","spouse_name":"","contact_reference_number":"","relationship":"","father_name":""}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:22 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6617936824383514","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:23 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7661936831386723","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwMzBkOWVlMmEyYmM3MzU3MTYwOTgzMjVkOCIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYwMywibmJmIjoxNjY3OTkzNjAzLCJleHAiOjE2NjgwODAwMDMsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.jObqqPXib3eC6S5RtpcG2KOP7qeRgElC1AInD77l9Uc","encrypted_user_reference_number":"eyJpdiI6IktIdVJ1S0FLN0t1NEdQSTZOKytLSkE9PSIsInZhbHVlIjoiK3cwWllXTTM0cnd3aWtmbnpHSER3Yy83RUJQaU1CSm5wb2RwRjNOYnJsRT0iLCJtYWMiOiJmN2Q5ZDk0MTI0MDJkYmZmYWRlZWVjZDQ1Y2QyMTZhNzQ2ZjhiN2FkMmVhNjhiY2MwYjg1NTgxNGYyM2Q3MTI0IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671936839934719","success":false,"response_code":101,"message":"The last name format is invalid."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						alphaNumeric_400,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:24 PM</td>
+				<td class='step-details'>
+						alphaNumeric_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7166936845912784","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:25 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1667936851887489","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwNTFmOWRjYjM4MzljMmEzNGNjYzgxZDdmNyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYwNSwibmJmIjoxNjY3OTkzNjA1LCJleHAiOjE2NjgwODAwMDUsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.PLLucj-tTyZazRzORmF45hesGn209vwG74fltOqiYcU","encrypted_user_reference_number":"eyJpdiI6IkFZcGRETlFQY2IzT1hMTmRkWm51Wmc9PSIsInZhbHVlIjoiWXBVMFc5aFJBR1cyNjM0NXRxSnZTMFRpWFFFNDNaVXZPME0xbUdRY2V2cz0iLCJtYWMiOiIyMjc2NTQyNzlhMWMxMjljMDFmMTI0OGI0OTE3ZTAxMzkwOWMzNzU3NzI3MTYxNDRkZDI1OTFjZjcwZDU5OTMyIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616936868959853","success":false,"response_code":101,"message":"The last name format is invalid."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						specialCharacterInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:26 PM</td>
+				<td class='step-details'>
+						specialCharacterInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616936866843124","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:27 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766936873182517","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwN2M4NTA2NjViYzZjMGJjZTFjOGQxYzY0MyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYwNywibmJmIjoxNjY3OTkzNjA3LCJleHAiOjE2NjgwODAwMDcsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.x75hDQhl8RuhGJ17L_0Lr6yje-E7bRxuzmwyu8_wB94","encrypted_user_reference_number":"eyJpdiI6ImVIUis3MFVYQXdOU2YyU2h0QTFFcGc9PSIsInZhbHVlIjoidUNHWHBtM0VjTkpsR2dSNWlvTGRjTGJqRDFiY1k2Z09KaGQvOVlMK1NZZz0iLCJtYWMiOiI1MzRhZjk3OWYzZWNiMjk0NWQzNDE1NDA5OTBiNTVjNDkwNDllMWViZjkwNmVhZmIxOTE0ZDg4YmY1YzJhNWVlIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:28 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1676936882557349","success":false,"response_code":101,"message":"The last name field is required."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6617936886861324","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:29 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1676936894373476","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwOWI0NDQ4OGNjNDllYTk3ZTQzNTFhZTA5ZiIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYwOSwibmJmIjoxNjY3OTkzNjA5LCJleHAiOjE2NjgwODAwMDksInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.RLBH3Y-6MNM0xbh90hmSDglwHZ76E_maBEw9xzz6TN4","encrypted_user_reference_number":"eyJpdiI6InJIdXR5YzZ6MjkvSCtvdnpBM0UvWXc9PSIsInZhbHVlIjoiRC9pSVZGbWJReDdTMzd6b0ZBbGxiUzRHUjZubngvRVVWQS9CZVlHOU9Ibz0iLCJtYWMiOiIxYTM0OTJkZGZhYTU0ZGVhMGQxZmU3N2QwNTVlNjYxOWFhMGM1ODhjMzc0ZGVhYWY2ZmFlNThmOWMzNzBhZjY0IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:30 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766936181329478","success":true,"response_code":0,"message":"Success","data":{"user":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","short_user_reference_number":null,"created_at":"2022-11-09T11:33:06.000000Z","first_name":"sunil","middle_name":"Lavakumar","last_name":"Chatla","mobile_number":6415786430,"dob":"1986-09-19","yob":"1986","gender":null,"email":"MotiRamaswamy83102@example.net","pan_hash":null,"pan_masked":null,"residence_type":null,"employment_type":null,"uid":null,"uid_hash":null,"uid_masked":null,"present_address_reference_number":null,"is_name_verified":null,"is_mobile_verified":"1","is_dob_verified":null,"is_pan_verified":null,"is_gender_verified":null,"name_verification_status":"PENDING","mobile_verification_status":"VERIFIED","pan_verification_status":"PENDING","dob_verification_status":"PENDING","yob_verification_status":"PENDING","gender_verification_status":"PENDING","is_nsdl_pan_verified":"0","nsdl_pan_user_name":null,"reapply_date":null,"profile_category":null,"payment_short_url":null,"source_app":"IDEOPAY","language_preference":null,"is_fraud":0,"is_subsidiaries_fa":0,"account_create_source":null,"razorpayx_customer_id":null,"razorpayx_mid_customer_id":null,"purple_reapply_date":null,"gcm_id":null,"ios_gcm_id":null,"kissht_user_reference_number":null,"is_active_loc":"inactive","source_financier":null,"eligible_source":null,"present_employment_reference_number":null,"references_details":null,"merchant_reference_number":"MERT665184239889LQ18","android_app_version":49,"subsidiaries_updated_at":null,"onboarding_stage":"PENDING","marital_status":null,"mother_name":"Zara","bureau_reference_number":null,"kyc_re_verification_band":"","spouse_name":"","contact_reference_number":"","relationship":"","father_name":""}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671936185995149","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:31 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6671936112533267","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwYjQ2YzQwNDBlMWYzMDhmZTU4M2FmNmYyMyIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYxMSwibmJmIjoxNjY3OTkzNjExLCJleHAiOjE2NjgwODAwMTEsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.CZ5Wlxk33SGfVYkYlaEyHFu_QNnwOurMWJCGZoTJals","encrypted_user_reference_number":"eyJpdiI6IkthVHJYcXJjMlJpaG05VlpmbTZVaXc9PSIsInZhbHVlIjoiM2Q1ZkZNMGR4am5reWJncnhxQTNvc1o3d3B0K3dTNXo1REZIOGlmRk95dz0iLCJtYWMiOiIzNmQwNTcyZjRkM2U4YTUyNWExNjJlYTU4N2FhNTNiYjkwOTVhYTcxZGI1N2UwYjNhNDk4Zjg0NjdkNzdiZDI0IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7661936119581893","success":false,"response_code":101,"message":"The email must be a valid email address."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:32 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1766936126416359","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:33 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"1667936133455867","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwZDM1NjAxMTFkZjFjNjRmMjBiMjg5MTgxZiIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYxMywibmJmIjoxNjY3OTkzNjEzLCJleHAiOjE2NjgwODAwMTMsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.1-qdac5iurYmZAr6i22Mq8jjr9Kp2j2UwpUgtM8vfPQ","encrypted_user_reference_number":"eyJpdiI6IkVFa0l0Um9PY2xiMmlValdEQ1c1aHc9PSIsInZhbHVlIjoic3BDUFB2NnFHZWdXbDN0aHJXWlJ6TGF6VGZveUY2azAxUTNaaEIvUkhNQT0iLCJtYWMiOiIyMjQ5YjI4YmNjMTY2N2ZiZmQ3MWYxZGI2MDIyZDM5YTlhM2ZiZWQzOWVjOWU3NTQyNjJlODMwOTNiZWVkOGIyIiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:34 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:35 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:35 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7616936144731958","success":false,"response_code":101,"message":"The email must be a valid email address."}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:35 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating 400 Bad request
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:35 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:35 PM</td>
+				<td class='step-details'>
+						spaceInFirstNameField_400,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6167936151422374","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6716936156198597","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAwZmMxMzk0MTViMDMxNmQwYTQwNjM1NTRmYSIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYxNSwibmJmIjoxNjY3OTkzNjE1LCJleHAiOjE2NjgwODAwMTUsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.44AZg46iEjZD0jHKdcvdONDIYMTet-F5A9xjPIETn6I","encrypted_user_reference_number":"eyJpdiI6IjluaVBkRjhsM3YzRVYrendnUkdtcFE9PSIsInZhbHVlIjoiYUk0WjkxNC9GZjA0aFRIamFWVk5YcGVheVlzMjd6b0k4a2JVTC9FT3BBZz0iLCJtYWMiOiJiYzBjMTcwNjZhM2FjY2VhMDY2OTk4NTMyOWY5MTU2NTcxMzhhNjhkMjJmNzY3YmQzN2JjY2U5ZTgxN2I5Mzc0IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:36 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6617936164849754","success":true,"response_code":0,"message":"Success","data":{"user":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","short_user_reference_number":null,"created_at":"2022-11-09T11:33:06.000000Z","first_name":"sunil","middle_name":"Lavakumar","last_name":"Chatla","mobile_number":6415786430,"dob":"1986-09-19","yob":"1986","gender":null,"email":"MotiRamaswamy83102@example.net","pan_hash":null,"pan_masked":null,"residence_type":null,"employment_type":null,"uid":null,"uid_hash":null,"uid_masked":null,"present_address_reference_number":null,"is_name_verified":null,"is_mobile_verified":"1","is_dob_verified":null,"is_pan_verified":null,"is_gender_verified":null,"name_verification_status":"PENDING","mobile_verification_status":"VERIFIED","pan_verification_status":"PENDING","dob_verification_status":"PENDING","yob_verification_status":"PENDING","gender_verification_status":"PENDING","is_nsdl_pan_verified":"0","nsdl_pan_user_name":null,"reapply_date":null,"profile_category":null,"payment_short_url":null,"source_app":"IDEOPAY","language_preference":null,"is_fraud":0,"is_subsidiaries_fa":0,"account_create_source":null,"razorpayx_customer_id":null,"razorpayx_mid_customer_id":null,"purple_reapply_date":null,"gcm_id":null,"ios_gcm_id":null,"kissht_user_reference_number":null,"is_active_loc":"inactive","source_financier":null,"eligible_source":null,"present_employment_reference_number":null,"references_details":null,"merchant_reference_number":"MERT665184239889LQ18","android_app_version":49,"subsidiaries_updated_at":null,"onboarding_stage":"PENDING","marital_status":null,"mother_name":"Zara","bureau_reference_number":null,"kyc_re_verification_band":"","spouse_name":"","contact_reference_number":"","relationship":"","father_name":""}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Update_User_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+				<li class='test displayed active  pass' status='pass' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>loginuser_200</span>
+						<span class='test-time'>Nov 9, 2022 05:03:37 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Nov 9, 2022 05:03:37 PM</span>
+	<span class='label end-time'>Nov 9, 2022 05:03:39 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+407ms</span>
+</div>
+<div class='test-steps'>
+	<table class='bordered table-results'>
+		<thead>
+			<tr>
+				<th>Status</th>
+				<th>Timestamp</th>
+				<th>Details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/send-otp
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","mobile_number":"6415786430"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7166936169565286","success":true,"response_code":0,"message":"Success","data":{"user_exists":true}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:37 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/android/authentication
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						Request :{"source_app":"IDEOPAY","otp":"888888","mobile_number":"6415786430","client_id":"MCUMMlBD7gs98HlHL3Py9Syk3xRsvvU5"}
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"7166936176882849","success":true,"response_code":0,"message":"Success","data":{"user_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MzZiOTAxMTc4OTQwY2E5MTA0YjM1NjM2N2E0YjM2YSIsImlzcyI6IkF1dGggU2VydmljZSIsInN1YiI6IklERVA3NjE2OTM1ODY2ODNJM1MxIiwiYXVkIjoidXNlciIsImlhdCI6MTY2Nzk5MzYxNywibmJmIjoxNjY3OTkzNjE3LCJleHAiOjE2NjgwODAwMTcsInZlciI6MSwia2V5X2lkIjoiTUNVTU1sQkQ3Z3M5OEhsSEwzUHk5U3lrM3hSc3Z2VTUiLCJjbGllbnRfaWQiOiJNQ1VNTWxCRDdnczk4SGxITDNQeTlTeWszeFJzdnZVNSIsInJlZmVyZW5jZV9udW1iZXIiOiJJREVQNzYxNjkzNTg2NjgzSTNTMSIsInJlZmVyZW5jZV90eXBlIjoidXNlciJ9.D-zt6OTp5_AIdgn2vTuRm-ZuZDnwhXVw1oUXiT3xkfI","encrypted_user_reference_number":"eyJpdiI6IlhXbGpJVmdEa2tMa2lIcjdrYUlncHc9PSIsInZhbHVlIjoiV0VNVVlBOG5PUEpJOXFxOTQ3TEhuYi91Y3hDZUJjZEx5a2dJdkpVNE5YZz0iLCJtYWMiOiJhNGY0YThkNDc3NWRlNDlmNzAzNjBkMzIwYzE4Mjc0MmU2YmMzNTQ5N2QzMTgzNjE0NWQzMWE2MDdiM2M5YTc3IiwidGFnIjoiIn0="}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:38 PM</td>
+				<td class='step-details'>
+						valid_otp_200,Validating user_exists should not be null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6176936182785924","success":true,"response_code":0,"message":"Success","data":{"user":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","short_user_reference_number":null,"created_at":"2022-11-09T11:33:06.000000Z","first_name":"sunil","middle_name":"Lavakumar","last_name":"Chatla","mobile_number":6415786430,"dob":"1986-09-19","yob":"1986","gender":null,"email":"MotiRamaswamy83102@example.net","pan_hash":null,"pan_masked":null,"residence_type":null,"employment_type":null,"uid":null,"uid_hash":null,"uid_masked":null,"present_address_reference_number":null,"is_name_verified":null,"is_mobile_verified":"1","is_dob_verified":null,"is_pan_verified":null,"is_gender_verified":null,"name_verification_status":"PENDING","mobile_verification_status":"VERIFIED","pan_verification_status":"PENDING","dob_verification_status":"PENDING","yob_verification_status":"PENDING","gender_verification_status":"PENDING","is_nsdl_pan_verified":"0","nsdl_pan_user_name":null,"reapply_date":null,"profile_category":null,"payment_short_url":null,"source_app":"IDEOPAY","language_preference":null,"is_fraud":0,"is_subsidiaries_fa":0,"account_create_source":null,"razorpayx_customer_id":null,"razorpayx_mid_customer_id":null,"purple_reapply_date":null,"gcm_id":null,"ios_gcm_id":null,"kissht_user_reference_number":null,"is_active_loc":"inactive","source_financier":null,"eligible_source":null,"present_employment_reference_number":null,"references_details":null,"merchant_reference_number":"MERT665184239889LQ18","android_app_version":49,"subsidiaries_updated_at":null,"onboarding_stage":"PENDING","marital_status":null,"mother_name":"Zara","bureau_reference_number":null,"kyc_re_verification_band":"","spouse_name":"","contact_reference_number":"","relationship":"","father_name":""}}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Updateuser,Validating messsage value
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Request Url -->https://user-gateway.test.ideopay.in/api/v1/users/login
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Response Body= {"request_id":"6617936189517698","success":true,"response_code":0,"message":"Success","data":{"user_id":4191896,"user_reference_number":"IDEP761693586683I3S1","first_name":"sunil","last_name":"Chatla","email":"MotiRamaswamy83102@example.net","merchant_reference_number":"MERT665184239889LQ18","mobile_number":6415786430}}
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating 200 Success Response
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Validating request_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating success is true
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Get_Details_VPN,Validating message value
+					
+				</td>
+			</tr>
+			<tr class='log' status='info'>
+				<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						Validating user_id is not null
+					
+				</td>
+			</tr>
+			<tr class='log' status='pass'>
+				<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+				<td class='timestamp'>5:03:39 PM</td>
+				<td class='step-details'>
+						loginuser_200 is PASSED
+					
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<div id='step-filters' class="right sr-filters">
+				<a class="btn-floating waves-effect waves-light green" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></a>
+				<a class="btn-floating waves-effect waves-light red" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light red darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></a>
+				<a class="btn-floating waves-effect waves-light pink text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></a>
+				<a class="btn-floating waves-effect waves-light orange" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></a>
+				<a class="btn-floating waves-effect waves-light teal" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></a>
+				<a class="btn-floating waves-effect waves-light grey" status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></a>
+			</div>
+			<h5 class='test-name'></h5>
+		</div>
+	</div>
+	<!-- subview right -->
+</div>
+<!-- test view --><!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>7</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>0</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Nov 9, 2022 05:02:56 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Nov 9, 2022 05:03:39 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 43s+443ms</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->		</div>
+		<!-- container -->
+		<script>
+			var statusGroup = {
+                parentCount: 7,
+				passParent: 7,
+				failParent: 0,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 0,
+				childCount: 0,
+				passChild: 0,
+				failChild: 0,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				debugChild: 0,
+				exceptionsChild: 0,
+				grandChildCount: 0,
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				debugGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		<script>
+			var timeline = {
+			        "user_200":5.51,"onloaduser_200":0.515,"get_vpn_200":0.936,"otp_200":2.742,"auth_200":5.234,"Update_User_200":25.875,"loginuser_200":2.407
+			};
+		</script>
+		<script src='https://cdn.rawgit.com/extent-framework/extent-github-cdn/b65cd69/v3html/js/extent.js' type='text/javascript'></script>
+		<script type='text/javascript'>
+			
+            
+            
+                $(document).ready(function() {
+                });
+            
+		
+		</script>
+	</body>
+</html>

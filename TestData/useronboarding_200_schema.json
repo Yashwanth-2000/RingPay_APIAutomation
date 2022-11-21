@@ -1,0 +1,77 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome3",
+    "definitions": {
+        "Welcome3": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome3"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "stage": {
+                    "type": "string"
+                },
+                "stage_detail": {
+                    "type": "string"
+                },
+                "segment": {
+                    "type": "string"
+                },
+                "details": {
+                    "$ref": "#/definitions/Details"
+                }
+            },
+            "required": [
+                "details",
+                "segment",
+                "stage",
+                "stage_detail"
+            ],
+            "title": "Data"
+        },
+        "Details": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "line_application_reference_number": {
+                    "type": "string"
+                },
+                "credit_limit": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "credit_limit",
+                "line_application_reference_number"
+            ],
+            "title": "Details"
+        }
+    }
+}
