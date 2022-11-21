@@ -124,39 +124,7 @@ public class DriverInstance extends Drivertools {
 		return capabilities;
 	}
 	
-//	@SuppressWarnings("unused")
-//	private void installAPK(String build) {
-//		if(build.contains("Latest") || build.contains("BuildVersion")) {
-//		//DownloadApp(build);
-//		System.out.println("Finished download");
-//		System.out.println(dir);
-//		File file = new File(dir);
-//		file.mkdir();
-//		File filesList[] = file.listFiles();
-//		 for(File fileName : filesList) {
-//			 apkName = fileName.getName();
-//		 }
-//		 capabilities.setCapability(MobileCapabilityType.APP, dir+apkName);
-//		 System.out.println("Install APK");
-//		switch(getApk()) {
-//		case "CleverTap":
-//			capabilities.setCapability(MobileCapabilityType.APP, dir+apkName);
-//			break;
-//		case "AppsFlyer":
-////			capabilities.setCapability(MobileCapabilityType.APP, dir+"");
-//			break;
-//		case "Conviva":
-////			capabilities.setCapability(MobileCapabilityType.APP, dir+"");
-//			break;
-//		case "DFP":
-//			capabilities.setCapability(MobileCapabilityType.APP, dir+"DFP.apk");
-//			break;
-//		case "Mixpanel":
-//			capabilities.setCapability(MobileCapabilityType.APP, dir+"mixpanel.apk");
-//			break;
-//		}
-//	  }
-//	}
+
 
 	/**
 	 * To Remove the permission of an application
