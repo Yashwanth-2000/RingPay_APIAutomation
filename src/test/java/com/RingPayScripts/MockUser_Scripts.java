@@ -27,7 +27,7 @@ public class MockUser_Scripts  {
 	private com.business.RingPay_MerchantQRCode_Journey.BasicDetailScreen_Check_Application_Eligibility basic_eligibility;
 
 
-//API
+
 	
 	@Test(priority = 0)
 //	@Parameters({"MOCK_USER-URI"})
