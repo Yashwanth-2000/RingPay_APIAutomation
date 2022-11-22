@@ -27,6 +27,7 @@ public class RegisterUser_Mock_User {
 
 
 	public void mock_User_200() throws Exception {
+//		long startTime=System.currentTimeMillis();
 		Object[][] data = dataProvider.Mock_UserAPIData("user_200");
 		ValidatableResponse response = Utilities.MockuserAPI(data);
 
@@ -38,7 +39,9 @@ public class RegisterUser_Mock_User {
 
 		//Schema Validation
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//mock_user_200_schema.json")), response.extract().body().asString(), "Mock_User,expectedJsonSchema");
-				
+//		long endTime=System.currentTimeMillis();
+//		
+//		ExtentReporter.extentLogger("Time Stamp", "Api Time 'mock_User_200'  : "+(endTime-startTime)+" milliseconds");
 	}
 
 		 

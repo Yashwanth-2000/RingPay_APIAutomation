@@ -11,6 +11,7 @@ import org.testng.Assert;
 import com.Datasheet.RingPay_TestData_DataProvider;
 import com.utility.ExtentReporter;
 import com.utility.Utilities;
+import com.utility.Validation;
 
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.ValidatableResponse;
@@ -28,31 +29,22 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 200);
-		Utilities.log.info("user_onboarding_200 , Validating 200 Success Response");
-		ExtentReporter.extentLogger("user_onboarding_200", "user_onboarding_200,Validating 200 Success Response");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,200,"userAuthenticate,Validating 200 Success Response");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "Success");
-		Utilities.log.info("user_onboarding_200 , Validating messsage value");
-		ExtentReporter.extentLogger("user_onboarding_200", "user_onboarding_200,Validating messsage value");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("data.stage"), "basic_details_pending");
-		Utilities.log.info("user_onboarding_200 , Validating stage should be basic_details_pending");
-		ExtentReporter.extentLogger("user_onboarding_200", "user_onboarding_200,Validating stage should be basic_details_pending");
+		//Body Validation
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("data.stage_detail"), "apply");
-		Utilities.log.info("user_onboarding_200 , Validating stage_detail should be apply");
-		ExtentReporter.extentLogger("user_onboarding_200", "user_onboarding_200,Validating stage_detail should be apply");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","userOnbording_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.stage"),"basic_details_pending","userOnbording_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.stage_detail"),"apply","userOnbording_Positive,Validating message should be success");
 
 
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_200_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("user_onboarding_200 , expectedJsonSchema");
-		ExtentReporter.extentLogger("user_onboarding_200", "user_onboarding_200,expectedJsonSchema");
 
-		Thread.sleep(2000);
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_200_schema.json")), response.extract().body().asString(), "userOnbording_Positive,expectedJsonSchema");
 
+		
 	}
 
 	public void latitudeFieldEmpty_Negative() throws Exception {
@@ -62,21 +54,18 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("latitudeFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("latitudeFieldEmpty_400", "latitudeFieldEmpty_400,Validating 400 Bad Request");
+		
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"userAuthenticate,Validating 400 Bad Request");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The latitude field is required.");
-		Utilities.log.info("latitudeFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("latitudeFieldEmpty_400", "latitudeFieldEmpty_400,Validating messsage");
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The latitude field is required.","latitudeFieldEmpty_Negative,Validating message value");
 
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("latitudeFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("latitudeFieldEmpty_400", "latitudeFieldEmpty_400,expectedJsonSchema");
+		
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "latitudeFieldEmpty_Negative,expectedJsonSchema");
 
-		Thread.sleep(2000);
 	}
 
 	public void longitudeFieldEmpty_Negative() throws Exception {
@@ -86,21 +75,19 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("longitudeFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,Validating 400 Bad Request");
+		
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"longitudeFieldEmpty_Negative,Validating 400 Bad Request");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The longitude field is required.");
-		Utilities.log.info("longitudeFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,Validating messsage");
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The longitude field is required.","longitudeFieldEmpty_Negative,Validating message value");
 
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("longitudeFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,expectedJsonSchema");
 
-		//		Thread.sleep(2000);
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "longitudeFieldEmpty_Negative,expectedJsonSchema");
+
+		
 	}
 
 	public void advertisingIdFieldEmpty_Negative() throws Exception {
@@ -110,20 +97,19 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("longitudeFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,Validating 400 Bad Request");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"advertisingIdFieldEmpty_Negative,Validating 400 Bad Request");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The advertising id field is required.");
-		Utilities.log.info("longitudeFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,Validating messsage");
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The advertising id field is required.","advertisingIdFieldEmpty_Negative,Validating message value");
+
 
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("longitudeFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("longitudeFieldEmpty_400", "longitudeFieldEmpty_400,expectedJsonSchema");
 
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "advertisingIdFieldEmpty_Negative,expectedJsonSchema");
+
+		
 	}
 
 	public void androidIdFieldEmpty_Negative() throws Exception {
@@ -133,20 +119,27 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("androidIdFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("androidIdFieldEmpty_400", "androidIdFieldEmpty_400,Validating 400 Bad Request");
+//		Assert.assertEquals(response.extract().statusCode(), 400);
+//		Utilities.log.info("androidIdFieldEmpty_400 , Validating 400 Bad Request");
+//		ExtentReporter.extentLogger("androidIdFieldEmpty_400", "androidIdFieldEmpty_400,Validating 400 Bad Request");
+//
+//		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The android id field is required.");
+//		Utilities.log.info("androidIdFieldEmpty_400 , Validating messsage value");
+//		ExtentReporter.extentLogger("androidIdFieldEmpty_400", "androidIdFieldEmpty_400,Validating messsage");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The android id field is required.");
-		Utilities.log.info("androidIdFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("androidIdFieldEmpty_400", "androidIdFieldEmpty_400,Validating messsage");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"androidIdFieldEmpty_Negative,Validating 400 Bad Request");
 
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The android id field is required.","androidIdFieldEmpty_Negative,Validating message value");
+
+		
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("androidIdFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("androidIdFieldEmpty_400", "androidIdFieldEmpty_400,expectedJsonSchema");
 
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "androidIdFieldEmpty_Negative,expectedJsonSchema");
+
+		
 	}
 
 	public void globalDeviceIdFieldEmpty_Negative() throws Exception {
@@ -156,20 +149,31 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("globalDeviceIdFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,Validating 400 Bad Request");
+//		Assert.assertEquals(response.extract().statusCode(), 400);
+//		Utilities.log.info("globalDeviceIdFieldEmpty_400 , Validating 400 Bad Request");
+//		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,Validating 400 Bad Request");
+//
+//		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The global device id field is required.");
+//		Utilities.log.info("globalDeviceIdFieldEmpty_400 , Validating messsage value");
+//		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,Validating messsage");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The global device id field is required.");
-		Utilities.log.info("globalDeviceIdFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,Validating messsage");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"globalDeviceIdFieldEmpty_Negative,Validating 400 Bad Request");
 
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The global device id field is required.","globalDeviceIdFieldEmpty_Negative,Validating message value");
+
+		
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("globalDeviceIdFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,expectedJsonSchema");
+//		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
+//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
+//		Utilities.log.info("globalDeviceIdFieldEmpty_400 , expectedJsonSchema");
+//		ExtentReporter.extentLogger("globalDeviceIdFieldEmpty_400", "globalDeviceIdFieldEmpty_400,expectedJsonSchema");
 
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "globalDeviceIdFieldEmpty_Negative,expectedJsonSchema");
+
+		
 	}
 
 	public void latitudeAndLongitudeFieldEmpty_Negative() throws Exception {
@@ -179,20 +183,33 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,Validating 400 Bad Request");
+//		Assert.assertEquals(response.extract().statusCode(), 400);
+//		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , Validating 400 Bad Request");
+//		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,Validating 400 Bad Request");
+//
+//		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The latitude field is required.,The longitude field is required.");
+//		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , Validating messsage value");
+//		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,Validating messsage");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The latitude field is required.,The longitude field is required.");
-		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , Validating messsage value");
-		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,Validating messsage");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"latitudeAndLongitudeFieldEmpty_Negative,Validating 400 Bad Request");
 
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The latitude field is required.,The longitude field is required.","latitudeAndLongitudeFieldEmpty_Negative,Validating message value");
+
+		
+		
+		
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,expectedJsonSchema");
+//		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
+//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
+//		Utilities.log.info("latitudeAndLongitudeFieldEmpty_400 , expectedJsonSchema");
+//		ExtentReporter.extentLogger("latitudeAndLongitudeFieldEmpty_400", "latitudeAndLongitudeFieldEmpty_400,expectedJsonSchema");
 
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "latitudeAndLongitudeFieldEmpty_Negative,expectedJsonSchema");
+
+		
 	}
 
 	public void latitudeFieldWithAlphaNumericKeywords_Negative() throws Exception {
@@ -202,20 +219,31 @@ public class BasicDetailScreen_User_Onboarding {
 
 
 		//Status Code Validation
-		Assert.assertEquals(response.extract().statusCode(), 400);
-		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , Validating 400 Bad Request");
-		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,Validating 400 Bad Request");
+//		Assert.assertEquals(response.extract().statusCode(), 400);
+//		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , Validating 400 Bad Request");
+//		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,Validating 400 Bad Request");
+//
+//		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The latitude format is invalid.");
+//		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , Validating messsage value");
+//		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,Validating messsage");
 
-		Assert.assertEquals(response.extract().body().jsonPath().get("message"), "The latitude format is invalid.");
-		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , Validating messsage value");
-		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,Validating messsage");
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,400,"latitudeFieldWithAlphaNumericKeywords_Negative,Validating 400 Bad Request");
 
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The latitude format is invalid.","latitudeFieldWithAlphaNumericKeywords_Negative,Validating message value");
+
+		
 		//Schema Validation
-		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
-		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , expectedJsonSchema");
-		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,expectedJsonSchema");
+//		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json"));
+//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
+//		Utilities.log.info("latitudeFieldWithAlphaNumericKeywords_400 , expectedJsonSchema");
+//		ExtentReporter.extentLogger("latitudeFieldWithAlphaNumericKeywords_400", "latitudeFieldWithAlphaNumericKeywords_400,expectedJsonSchema");
 
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_400_schema.json")), response.extract().body().asString(), "latitudeFieldWithAlphaNumericKeywords_Negative,expectedJsonSchema");
+
+		
 	}
 
 

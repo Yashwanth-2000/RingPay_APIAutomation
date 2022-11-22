@@ -35,7 +35,7 @@ public class RegisterUser_OTPSend {
 		//Body Validation
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"OTPSend,Validating request_id is not null");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "OTPSend,Validating success is true");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","OTPSend,Validating status should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","OTPSend,Validating status should be success");
 		Validation.assertFalse(response.extract().body().jsonPath().get("data.user_exists"), "OTPSend,Validating user_exists should be false");
 
 
@@ -61,7 +61,7 @@ public class RegisterUser_OTPSend {
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"valid_MobileNo_UserExist_True_Positive,Validating request_id is not null");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "valid_MobileNo_UserExist_True_Positive,Validating success is true");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","valid_MobileNo_UserExist_True_Positive,Validating status should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","valid_MobileNo_UserExist_True_Positive,Validating status should be success");
 
 
 		//		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_200_schema.json")), response.extract().body().asString(), "valid_MobileNo_UserExist_True_Positive,expectedJsonSchema");
@@ -84,7 +84,7 @@ public class RegisterUser_OTPSend {
 
 
 		//Body Validation
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The mobile number must be at least 10 characters.","mobileNoLessThan10Digit_Negative,Validating message value");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The mobile number must be at least 10 characters.","mobileNoLessThan10Digit_Negative,Validating message value");
 
 
 		//Schema Validation
@@ -106,7 +106,7 @@ public class RegisterUser_OTPSend {
 
 
 		//Body Validation
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The mobile number may not be greater than 10 characters.","mobileNoMoreThan10Digit_Negative,Validating message value");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The mobile number may not be greater than 10 characters.","mobileNoMoreThan10Digit_Negative,Validating message value");
 
 
 		//Schema Validation
@@ -126,7 +126,7 @@ public class RegisterUser_OTPSend {
 
 
 		//Body Validation
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The mobile number format is invalid.","specialCharacterInMobileNoField_Negative,Validating message value");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The mobile number format is invalid.","specialCharacterInMobileNoField_Negative,Validating message value");
 
 
 		//Schema Validation

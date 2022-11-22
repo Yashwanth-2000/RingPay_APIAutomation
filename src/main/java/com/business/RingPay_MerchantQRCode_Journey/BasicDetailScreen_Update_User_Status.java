@@ -35,8 +35,8 @@ public class BasicDetailScreen_Update_User_Status {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"updateUserStatus_Positive,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","updateUserStatus_Positive,Validating message should be success");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("data.user.onboarding_stage"),"VERIFIED","updateUserStatus_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUserStatus_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.user.onboarding_stage"),"VERIFIED","updateUserStatus_Positive,Validating message should be success");
 
 		
 
@@ -45,6 +45,8 @@ public class BasicDetailScreen_Update_User_Status {
 		//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
 		//		Utilities.log.info("updateUserStatus_200 , expectedJsonSchema");
 		//		ExtentReporter.extentLogger("updateUserStatus_200", "updateUserStatus_200,expectedJsonSchema");
+	
+//		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//update_user_status_200_schema.json")), response.extract().body().asString(), "updateUserStatus_Positive,expectedJsonSchema");
 
 
 

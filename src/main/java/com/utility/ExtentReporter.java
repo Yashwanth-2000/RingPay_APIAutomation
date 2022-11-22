@@ -467,4 +467,9 @@ public class ExtentReporter implements ITestListener {
 			src = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(org.openqa.selenium.OutputType.FILE);
 		}
 	}
+	
+	 
+			
+	
+	
 }

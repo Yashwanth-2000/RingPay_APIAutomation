@@ -40,9 +40,9 @@ public class RegisterUser_Get_Details_VPA {
 
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "Get_Details_VPN,Validating success is true");
 
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","Get_Details_VPN,Validating messsage value");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","Get_Details_VPN,Validating messsage value");
 
-		Validation.assertEqualsValidatingActiveValue(response.extract().body().jsonPath().get("data.merchant_details.status"),"ACTIVE","Get_Details_VPN,Validating status is Active");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.merchant_details.status"),"ACTIVE","Get_Details_VPN,Validating status is Active");
 
 
 		//Schema Validation

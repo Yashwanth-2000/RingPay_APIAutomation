@@ -1,0 +1,121 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome9",
+    "definitions": {
+        "Welcome9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome9"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "line_offer": {
+                    "$ref": "#/definitions/LineOffer"
+                }
+            },
+            "required": [
+                "line_offer"
+            ],
+            "title": "Data"
+        },
+        "LineOffer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "eligible_credit_limit": {
+                    "type": "string"
+                },
+                "display_message": {
+                    "type": "string"
+                },
+                "new_display_message": {
+                    "type": "string"
+                },
+                "utilization_fee_percentage": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "first_utilization_fee_percentage": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "one_time_activation_fee": {
+                    "type": "string",
+                    "format": "integer"
+                },
+                "nbfc": {
+                    "type": "string"
+                },
+                "display_data": {
+                    "$ref": "#/definitions/DisplayData"
+                }
+            },
+            "required": [
+                "display_data",
+                "display_message",
+                "eligible_credit_limit",
+                "first_utilization_fee_percentage",
+                "nbfc",
+                "new_display_message",
+                "one_time_activation_fee",
+                "utilization_fee_percentage"
+            ],
+            "title": "LineOffer"
+        },
+        "DisplayData": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "first_transaction_message": {
+                    "type": "string"
+                },
+                "utilization_fee_message": {
+                    "type": "string"
+                },
+                "activation_fee_message": {
+                    "type": "string"
+                },
+                "repayment_date": {
+                    "type": "string"
+                },
+                "no_fee_message": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "activation_fee_message",
+                "first_transaction_message",
+                "no_fee_message",
+                "repayment_date",
+                "utilization_fee_message"
+            ],
+            "title": "DisplayData"
+        }
+    }
+}

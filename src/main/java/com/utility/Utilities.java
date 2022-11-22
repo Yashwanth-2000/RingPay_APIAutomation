@@ -171,224 +171,224 @@ public class Utilities extends ExtentReporter{
 		}
 	}
 
-//	public static boolean JSClick(By byLocator, String text) throws Exception {
-//		try {
-//			js = (JavascriptExecutor) DriverManager.getDriver();
-//			js.executeScript("arguments[0].click();", DriverManager.getDriver().findElement(byLocator));
-//			logger.info("" + text + " " + " is clicked");
-//			ExtentReporter.extentLogger("checkElementPresent", "" + text + " is clicked");
-//			return true;
-//		} catch (Exception e) {
-//			logger.error(text + " " + " is not clicked");
-//			ExtentReporter.extentLoggerFail("checkElementNotPresent", "" + text + " is not clicked");
-//			ExtentReporter.screencapture();
-//			//			e.printStackTrace();
-//			return false;
-//		}
-//	}
+	//	public static boolean JSClick(By byLocator, String text) throws Exception {
+	//		try {
+	//			js = (JavascriptExecutor) DriverManager.getDriver();
+	//			js.executeScript("arguments[0].click();", DriverManager.getDriver().findElement(byLocator));
+	//			logger.info("" + text + " " + " is clicked");
+	//			ExtentReporter.extentLogger("checkElementPresent", "" + text + " is clicked");
+	//			return true;
+	//		} catch (Exception e) {
+	//			logger.error(text + " " + " is not clicked");
+	//			ExtentReporter.extentLoggerFail("checkElementNotPresent", "" + text + " is not clicked");
+	//			ExtentReporter.screencapture();
+	//			//			e.printStackTrace();
+	//			return false;
+	//		}
+	//	}
 
 
-//	public static WebElement findElement(By byLocator) throws Exception {  	  
-//		//WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));  	  
-//		//return element; + 
-//		WebElement element = null;
-//		if (getPlatform().equals("Web")) {
-//			element = DriverManager.getDriver().findElement(byLocator);
-//			return element;
-//		} 
-//		else if (getPlatform().equals("MPWA")) {
-//			element = DriverManager.getAppiumDriver().findElement(byLocator);
-//			return element;
-//		}
-//		return element;
-//	}
-//
-//
-//	public void setWifiConnectionToONOFF(String Value) {
-//		try {
-//			if (Value.equalsIgnoreCase("On")) {
-//				System.out.println("Switching On Wifi");
-//				String cmd = "adb shell svc wifi enable";
-//				Runtime.getRuntime().exec(cmd);
-//				waitTime(5000);
-//				logger.info("Wifi Data toggle is Switched On");
-//				ExtentReporter.extentLogger("Wifi Toggle", "Wifi Data toggle is Switched On");
-//			} else if (Value.equalsIgnoreCase("Off")) {
-//				System.out.println("Switching Off Wifi");
-//				String cmd = "adb shell svc wifi disable";
-//				Runtime.getRuntime().exec(cmd);
-//				waitTime(3000);
-//				logger.info("Wifi Data toggle is Switched Off");
-//				ExtentReporter.extentLogger("Wifi Toggle", "Wifi Data toggle is Switched Off");
-//			}
-//		} catch (Exception e) {
-//			//			logger.error(e);
-//		}
-//	}
-//
-//	/**
-//	 * wait until element is displayed.
-//	 *
-//	 * @param
-//	 * @return true, if successful
-//	 */
-//	public static boolean waitForElementDisplayed(By byLocator, int iTimeOut) {
-//		try {
-//			wait.until(ExpectedConditions.visibilityOfElementLocated(byLocator));
-//			return false;
-//		} catch (Exception e) {
-//			return true;
-//		}
-//	}
-//
-//	/**
-//	 * Check element not present.
-//	 *
-//	 * @param byLocator the by locator
-//	 * @return true, if successful
-//	 */
-//	public static boolean verifyElementNotPresent(By byLocator, int iTimeOut) {
-//		try {
-//			WebDriverWait wait = new WebDriverWait(getDriver(), iTimeOut);
-//			wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
-//			return false;
-//		} catch (NoSuchElementException e) {
-//			return true;
-//		}
-//	}
-//
-//	/**
-//	 * Check element present.
-//	 * @param byLocator the by locator
-//	 * @return true, if successful
-//	 */
-//	public static boolean verifyElementPresentOld(By byLocator, String validationtext) throws Exception {
-//		try {
-//			isPresentWithWait(byLocator);
-//			logger.info(validationtext + " is displayed");
-//			ExtentReporter.extentLogger("checkElementPresent", validationtext + " is displayed");
-//			return true;
-//		} catch (Exception e) {
-//			logger.error(validationtext + " is not displayed");
-//			ExtentReporter.extentLoggerFail("checkElementPresent", validationtext + " is not displayed");
-//			return false;
-//		}
-//	}
-//
-//	public static boolean verifyElementPresent(By byLocator, String validationtext) throws Exception {
-//		if(isPresentWithWait(byLocator)) {
-//			logger.info(validationtext + " is displayed");
-//			ExtentReporter.extentLogger("checkElementPresent", validationtext + " is displayed");
-//			return true;
-//		} 
-//		else {
-//			logger.error(validationtext + " is not displayed");
-//			ExtentReporter.extentLoggerFail("checkElementPresent", validationtext + " is not displayed");
-//			return false;
-//		}
-//	}
-//
-//	public static boolean verifyElementExist(By byLocator, String str) throws Exception {
-//		try {
-//			WebElement element = DriverManager.getDriver().findElement(byLocator);
-//			if (element.isDisplayed()) {
-//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is displayed");
-//				logger.info("" + str + " is displayed");
-//				return true;
-//			}
-//		} catch (Exception e) {
-//			ExtentReporter.extentLoggerFail("checkElementPresent", "" + str + " is not displayed");
-//			logger.error(str + " is not displayed");
-//			return false;
-//		}
-//		return false;
-//	}
-//
-//	/**
-//	 * boolean return type for conditions
-//	 *
-//	 * @param byLocator
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public static boolean verifyElementDisplayed(By byLocator) throws Exception {
-//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
-//		if(platform.equalsIgnoreCase("web")) {
-//			try {
-//				WebElement element = DriverManager.getDriver().findElement(byLocator);
-//				if (element.isDisplayed()) {
-//					return true;
-//				}
-//			} catch (Exception e) {}
-//		}
-//		else if(platform.equalsIgnoreCase("mpwa")) {
-//			try {
-//				WebElement element = DriverManager.getAppiumDriver().findElement(byLocator);
-//				if (element.isDisplayed()) {
-//					return true;
-//				}
-//			} catch (Exception e) {}
-//		}
-//		return false;
-//	}
-//
-//
-//	public static boolean checkElementExist(By byLocator, String str) throws Exception {
-//
-//		try {
-//			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//			List<WebElement> list = getDriver().findElements(byLocator);
-//			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//			if (list.size() == 0) {
-//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is not displayed");
-//				logger.info("" + str + " is not displayed");
-//				return false;
-//			} else {
-//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is displayed");
-//				logger.info("" + str + " is displayed");
-//				return list.get(0).isDisplayed();
-//			}
-//		} catch (Exception e) {
-//			return false;
-//		}
-//	}
-//
-//	/**
-//	 * Check element present and click.
-//	 *
-//	 * @param byLocator the by locator
-//	 * @return true, if successful
-//	 */
-//	public static boolean verifyElementPresentAndClick(By byLocator, String validationtext) throws Exception {
-//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
-//		WebElement element=null;
-//		try {
-//			if(platform.equalsIgnoreCase("web")) {
-//				element = DriverManager.getDriver().findElement(byLocator);
-//			}
-//			else if (platform.equalsIgnoreCase("mpwa")) {
-//				element = DriverManager.getAppiumDriver().findElement(byLocator);
-//			}
-//			softAssert.assertEquals(element.isDisplayed(), true, "" + validationtext + " " + " is displayed");
-//			logger.info("" + validationtext + " " + "is displayed");
-//			ExtentReporter.extentLogger("checkElementPresent", "" + validationtext + " is displayed");
-//			if(platform.equalsIgnoreCase("web")) {
-//				DriverManager.getDriver().findElement(byLocator).click();
-//			}
-//			else if (platform.equalsIgnoreCase("mpwa")) {
-//				DriverManager.getAppiumDriver().findElement(byLocator).click();
-//			}
-//			logger.info("Clicked on " + validationtext);
-//			ExtentReporter.extentLogger("click", "Clicked on " + validationtext);
-//			return true;
-//		} catch (Exception e) {
-//			softAssert.assertEquals(false, true, "Element" + validationtext + " " + " is not visible");
-//			logger.error("Element " + validationtext + " " + " is not visible");
-//			ExtentReporter.extentLoggerFail("checkElementPresent", "" + validationtext + " is not displayed");
-//			ExtentReporter.screencapture();
-//			return false;
-//		}
-//	}
+	//	public static WebElement findElement(By byLocator) throws Exception {  	  
+	//		//WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));  	  
+	//		//return element; + 
+	//		WebElement element = null;
+	//		if (getPlatform().equals("Web")) {
+	//			element = DriverManager.getDriver().findElement(byLocator);
+	//			return element;
+	//		} 
+	//		else if (getPlatform().equals("MPWA")) {
+	//			element = DriverManager.getAppiumDriver().findElement(byLocator);
+	//			return element;
+	//		}
+	//		return element;
+	//	}
+	//
+	//
+	//	public void setWifiConnectionToONOFF(String Value) {
+	//		try {
+	//			if (Value.equalsIgnoreCase("On")) {
+	//				System.out.println("Switching On Wifi");
+	//				String cmd = "adb shell svc wifi enable";
+	//				Runtime.getRuntime().exec(cmd);
+	//				waitTime(5000);
+	//				logger.info("Wifi Data toggle is Switched On");
+	//				ExtentReporter.extentLogger("Wifi Toggle", "Wifi Data toggle is Switched On");
+	//			} else if (Value.equalsIgnoreCase("Off")) {
+	//				System.out.println("Switching Off Wifi");
+	//				String cmd = "adb shell svc wifi disable";
+	//				Runtime.getRuntime().exec(cmd);
+	//				waitTime(3000);
+	//				logger.info("Wifi Data toggle is Switched Off");
+	//				ExtentReporter.extentLogger("Wifi Toggle", "Wifi Data toggle is Switched Off");
+	//			}
+	//		} catch (Exception e) {
+	//			//			logger.error(e);
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * wait until element is displayed.
+	//	 *
+	//	 * @param
+	//	 * @return true, if successful
+	//	 */
+	//	public static boolean waitForElementDisplayed(By byLocator, int iTimeOut) {
+	//		try {
+	//			wait.until(ExpectedConditions.visibilityOfElementLocated(byLocator));
+	//			return false;
+	//		} catch (Exception e) {
+	//			return true;
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Check element not present.
+	//	 *
+	//	 * @param byLocator the by locator
+	//	 * @return true, if successful
+	//	 */
+	//	public static boolean verifyElementNotPresent(By byLocator, int iTimeOut) {
+	//		try {
+	//			WebDriverWait wait = new WebDriverWait(getDriver(), iTimeOut);
+	//			wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
+	//			return false;
+	//		} catch (NoSuchElementException e) {
+	//			return true;
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Check element present.
+	//	 * @param byLocator the by locator
+	//	 * @return true, if successful
+	//	 */
+	//	public static boolean verifyElementPresentOld(By byLocator, String validationtext) throws Exception {
+	//		try {
+	//			isPresentWithWait(byLocator);
+	//			logger.info(validationtext + " is displayed");
+	//			ExtentReporter.extentLogger("checkElementPresent", validationtext + " is displayed");
+	//			return true;
+	//		} catch (Exception e) {
+	//			logger.error(validationtext + " is not displayed");
+	//			ExtentReporter.extentLoggerFail("checkElementPresent", validationtext + " is not displayed");
+	//			return false;
+	//		}
+	//	}
+	//
+	//	public static boolean verifyElementPresent(By byLocator, String validationtext) throws Exception {
+	//		if(isPresentWithWait(byLocator)) {
+	//			logger.info(validationtext + " is displayed");
+	//			ExtentReporter.extentLogger("checkElementPresent", validationtext + " is displayed");
+	//			return true;
+	//		} 
+	//		else {
+	//			logger.error(validationtext + " is not displayed");
+	//			ExtentReporter.extentLoggerFail("checkElementPresent", validationtext + " is not displayed");
+	//			return false;
+	//		}
+	//	}
+	//
+	//	public static boolean verifyElementExist(By byLocator, String str) throws Exception {
+	//		try {
+	//			WebElement element = DriverManager.getDriver().findElement(byLocator);
+	//			if (element.isDisplayed()) {
+	//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is displayed");
+	//				logger.info("" + str + " is displayed");
+	//				return true;
+	//			}
+	//		} catch (Exception e) {
+	//			ExtentReporter.extentLoggerFail("checkElementPresent", "" + str + " is not displayed");
+	//			logger.error(str + " is not displayed");
+	//			return false;
+	//		}
+	//		return false;
+	//	}
+	//
+	//	/**
+	//	 * boolean return type for conditions
+	//	 *
+	//	 * @param byLocator
+	//	 * @return
+	//	 * @throws Exception
+	//	 */
+	//	public static boolean verifyElementDisplayed(By byLocator) throws Exception {
+	//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
+	//		if(platform.equalsIgnoreCase("web")) {
+	//			try {
+	//				WebElement element = DriverManager.getDriver().findElement(byLocator);
+	//				if (element.isDisplayed()) {
+	//					return true;
+	//				}
+	//			} catch (Exception e) {}
+	//		}
+	//		else if(platform.equalsIgnoreCase("mpwa")) {
+	//			try {
+	//				WebElement element = DriverManager.getAppiumDriver().findElement(byLocator);
+	//				if (element.isDisplayed()) {
+	//					return true;
+	//				}
+	//			} catch (Exception e) {}
+	//		}
+	//		return false;
+	//	}
+	//
+	//
+	//	public static boolean checkElementExist(By byLocator, String str) throws Exception {
+	//
+	//		try {
+	//			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	//			List<WebElement> list = getDriver().findElements(byLocator);
+	//			getDriver().manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	//			if (list.size() == 0) {
+	//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is not displayed");
+	//				logger.info("" + str + " is not displayed");
+	//				return false;
+	//			} else {
+	//				ExtentReporter.extentLogger("checkElementPresent", "" + str + " is displayed");
+	//				logger.info("" + str + " is displayed");
+	//				return list.get(0).isDisplayed();
+	//			}
+	//		} catch (Exception e) {
+	//			return false;
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Check element present and click.
+	//	 *
+	//	 * @param byLocator the by locator
+	//	 * @return true, if successful
+	//	 */
+	//	public static boolean verifyElementPresentAndClick(By byLocator, String validationtext) throws Exception {
+	//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
+	//		WebElement element=null;
+	//		try {
+	//			if(platform.equalsIgnoreCase("web")) {
+	//				element = DriverManager.getDriver().findElement(byLocator);
+	//			}
+	//			else if (platform.equalsIgnoreCase("mpwa")) {
+	//				element = DriverManager.getAppiumDriver().findElement(byLocator);
+	//			}
+	//			softAssert.assertEquals(element.isDisplayed(), true, "" + validationtext + " " + " is displayed");
+	//			logger.info("" + validationtext + " " + "is displayed");
+	//			ExtentReporter.extentLogger("checkElementPresent", "" + validationtext + " is displayed");
+	//			if(platform.equalsIgnoreCase("web")) {
+	//				DriverManager.getDriver().findElement(byLocator).click();
+	//			}
+	//			else if (platform.equalsIgnoreCase("mpwa")) {
+	//				DriverManager.getAppiumDriver().findElement(byLocator).click();
+	//			}
+	//			logger.info("Clicked on " + validationtext);
+	//			ExtentReporter.extentLogger("click", "Clicked on " + validationtext);
+	//			return true;
+	//		} catch (Exception e) {
+	//			softAssert.assertEquals(false, true, "Element" + validationtext + " " + " is not visible");
+	//			logger.error("Element " + validationtext + " " + " is not visible");
+	//			ExtentReporter.extentLoggerFail("checkElementPresent", "" + validationtext + " is not displayed");
+	//			ExtentReporter.screencapture();
+	//			return false;
+	//		}
+	//	}
 
 	public static String getAdId() throws IOException {
 		String cmd = "adb shell grep adid_key /data/data/com.google.android.gms/shared_prefs/adid_settings.xml";
@@ -2049,19 +2049,19 @@ public class Utilities extends ExtentReporter{
 		}
 	}
 
-//	public void TurnONWifi() throws IOException {
-//		String Deviceversion = getTheOSVersion();
-//		System.out.println("Turn on wifi");
-//		if (Deviceversion.contains("6")) {
-//			Runtime.getRuntime().exec("adb shell am broadcast -a io.appium.settings.wifi --es setstatus enable");
-//			logger.info("Turning ON wifi");
-//			ExtentReporter.extentLogger("Turning ON wifi", "Turning ON wifi");
-//		} else {
-//			Runtime.getRuntime().exec("adb shell svc wifi enable");
-//			logger.info("Turning ON wifi");
-//			ExtentReporter.extentLogger("Turning ON wifi", "Turning ON wifi");
-//		}
-//	}
+	//	public void TurnONWifi() throws IOException {
+	//		String Deviceversion = getTheOSVersion();
+	//		System.out.println("Turn on wifi");
+	//		if (Deviceversion.contains("6")) {
+	//			Runtime.getRuntime().exec("adb shell am broadcast -a io.appium.settings.wifi --es setstatus enable");
+	//			logger.info("Turning ON wifi");
+	//			ExtentReporter.extentLogger("Turning ON wifi", "Turning ON wifi");
+	//		} else {
+	//			Runtime.getRuntime().exec("adb shell svc wifi enable");
+	//			logger.info("Turning ON wifi");
+	//			ExtentReporter.extentLogger("Turning ON wifi", "Turning ON wifi");
+	//		}
+	//	}
 
 	@SuppressWarnings("rawtypes")
 	public void carouselSwipe(String direction, int count) {
@@ -2258,307 +2258,307 @@ public class Utilities extends ExtentReporter{
 	}
 
 	//	====================================================TV=================================================
-//	public boolean verifyElementExistTv(By byLocator, String str) throws Exception {
-//
-//		try {
-//
-//			if (getDriver().findElement(byLocator).isDisplayed()) {
-//				ExtentReporter.extentLogger("checkElementPresent", str + " is displayed");
-//				logger.info("" + str + " is displayed");
-//				return true;
-//			}
-//		} catch (Exception e) {
-//			ExtentReporter.extentLogger("checkElementPresent", str + " is not displayed");
-//			logger.info(str + " is not displayed");
-//			return false;
-//		}
-//		return false;
-//	}
-//
-//	public void TVclick(By byLocator, String validationtext) throws Exception {
-//
-//		try {
-//			getDriver().findElement(byLocator).click();
-//			logger.info("Clicked on " + validationtext);
-//			ExtentReporter.extentLogger("click", "Clicked on " + validationtext);
-//		} catch (Exception e) {
-//			//			logger.error(e);
-//		}
-//	}
-//
-//	public String TVgetText(By byLocator) throws Exception {
-//		String Value = null;
-//		Value = getDriver().findElement(byLocator).getText();
-//		return Value;
-//	}
-//
-//	public boolean TVVerifyElementNotPresent(By byLocator, int waitTime)
-//	{
-//		try{
-//			WebDriverWait wait = new WebDriverWait(getDriver(), waitTime);
-//			wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
-//			return false;
-//		}catch(Exception e)
-//		{
-//			return true;
-//		}
-//	}
-//
-//
-//	public String TVgetAttributValue(String property, By byLocator) throws Exception {
-//		String Value = null;
-//		Value = getDriver().findElement(byLocator).getAttribute(property);
-//		return Value;
-//	}
-//
-//	public void BrowsertearDown() {
-//		DriverManager.getDriver().quit();
-//	}
-//
-//	public void decode() {
-//		CTUserName = new String(Base64.getDecoder().decode(getParameterFromXML("CTUser")));
-//		CTPWD = new String(Base64.getDecoder().decode(getParameterFromXML("CTPwd")));
-//	}
-//
-//	/**
-//	 * The method will wait for the element to not be located for a maximum of given
-//	 * seconds. The method terminates immediately once the element is located and
-//	 * throws error.
-//	 */
-//	public static void waitForElementAbsence(By locator, int seconds, String message) throws InterruptedException {
-//		main: for (int time = 0; time <= seconds; time++) {
-//			try {
-//				Utilities.findElement(locator);
-//				logger.error("Located element " + message);
-//				ExtentReporter.extentLoggerFail("locatedElement", "Located element " + message);
-//				break main;
-//			} catch (Exception e) {
-//				Thread.sleep(1000);
-//				if (time == seconds) {
-//					logger.info("Expected behavior: " + message + " is not displayed");
-//					ExtentReporter.extentLogger("failedLocateElement", "Expected behavior: " + message + " is not displayed");
-//				}
-//			}
-//		}
-//	}
-//
-//	/**
-//	 * This method will wait for element presence till the given time 
-//	 * @param locator
-//	 * @param seconds
-//	 * @param message
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public static boolean waitForElementPresence(By locator, int seconds, String message) throws Exception {
-//		try {
-//			String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
-//			if(platform.equalsIgnoreCase("web")) {
-//				WebDriverWait w = new WebDriverWait(DriverManager.getDriver(), seconds);
-//				w.until(ExpectedConditions.presenceOfElementLocated(locator));
-//				logger.info(message + " is displayed");
-//				ExtentReporter.extentLogger("element is displayed", message + " is displayed");
-//				return true;
-//			}else if(platform.equalsIgnoreCase("mpwa")) {
-//				WebDriverWait w = new WebDriverWait(DriverManager.getAppiumDriver(), seconds);
-//				w.until(ExpectedConditions.presenceOfElementLocated(locator));
-//				logger.info(message + " is displayed");
-//				ExtentReporter.extentLogger("element is displayed", message + " is displayed");
-//				return true;
-//			}
-//		}
-//		catch (Exception e) {}
-//		return false;
-//	}
-//
-//	/**
-//	 * This method will wait for element presence till the given time 
-//	 * @param locator
-//	 * @param seconds
-//	 * @param message
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public static boolean waitForElementVisible(By locator, int seconds, String message) throws Exception {
-//		try {
-//			WebDriverWait w = new WebDriverWait(DriverManager.getDriver(), seconds);
-//			w.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//			logger.info(message + " is displayed");
-//			ExtentReporter.extentLogger("element is displayed", message + " is displayed");
-//			return true;
-//		} catch (Exception e) {
-//			return false;
-//		}
-//	}
-//
-//	/**
-//	 * Generic method to return browser current url
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public static String getBrowserCurrentUrl() throws Exception {
-//		try {
-//			return (DriverManager.getDriver().getCurrentUrl());
-//		} catch (Exception e) {
-//			return "";
-//		}
-//	}
-//
-//	/**
-//	 * Function to switch to window
-//	 * @param noOfWindows
-//	 */
-//	public static void switchToWindow(int noOfWindows) {
-//		try {
-//			wait.until(ExpectedConditions.numberOfWindowsToBe(noOfWindows));
-//			for (String winHandle : DriverManager.getDriver().getWindowHandles()) {
-//				win.add(winHandle);
-//				DriverManager.getDriver().switchTo().window(winHandle);
-//				DriverManager.getDriver().manage().window().maximize();
-//			}
-//		} catch (Exception e) {
-//			System.out.println("\n No window is displayed!");
-//		}
-//	}
-//
-//	/**
-//	 * Method to Move to Element using Actions
-//	 * @param title
-//	 * @throws Exception 
-//	 */
-//	public static void moveToElementAction(WebElement element, String message) throws Exception {
-//		try {
-//			Actions a = new Actions(DriverManager.getDriver());
-//			a.moveToElement(element).build().perform();
-//			logger.info("Moved to element "+message);
-//			ExtentReporter.extentLogger("", "Moved to element "+message);
-//		}
-//		catch(Exception e) {
-//			logger.error("Failed to move to element "+message);
-//			ExtentReporter.extentLoggerFail("", "Failed to move to element "+message);
-//		}
-//	}
-//
-//	public static void waitUntilElementVisible_NoCustomMessage(By by) {
-//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();		
-//		try {
-//			if(platform.equalsIgnoreCase("web")) {
-//				WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 20);
-//				wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-//			}
-//			if(platform.equalsIgnoreCase("mpwa")) {
-//				WebDriverWait wait = new WebDriverWait(DriverManager.getAppiumDriver(), 20);
-//				wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-//			}
-//
-//		} catch (Exception e) {
-//			throw new ElementNotVisibleException(getCustomErrorMessageForReport(by), e.getCause());
-//		} finally {}
-//	}
-//
-//	public static boolean isPresentWithWait(By by) {
-//		boolean flag = true;
-//		try {
-//			waitUntilElementVisible_NoCustomMessage(by);
-//		} catch (Exception e) {
-//			flag = false;
-//		}
-//		return flag;
-//	}
-//
-//	public static String getCustomErrorMessageForReport(By by) {
-//		String className = by.getClass().getSimpleName();
-//		String value = "";
-//		try {
-//			Field field = by.getClass().getDeclaredFields()[1];
-//			field.setAccessible(true);
-//			value = field.get(by).toString();
-//		} catch (Exception ignored) {
-//		}
-//		return "Timed out waiting for visibility of element located = " + className + "(" + value + ")";
-//
-//	}
-//
-//	public static void waitForElementAndClick(By locator, int seconds, String message) throws Exception {
-//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
-//		main: for (int time = 0; time <= seconds; time++) {
-//			try {
-//				if(platform.equalsIgnoreCase("web")) {
-//					DriverManager.getDriver().findElement(locator).click();
-//				}
-//				else if(platform.equalsIgnoreCase("mpwa")) {
-//					DriverManager.getAppiumDriver().findElement(locator).click();
-//				}
-//				logger.info("Clicked element " + message);
-//				ExtentReporter.extentLogger("clickedElement", "Clicked element " + message);
-//				break main;
-//			} catch (Exception e) {
-//				Thread.sleep(1000);
-//				if (time == seconds) {
-//					logger.error("Failed to click element " + message);
-//					ExtentReporter.extentLoggerFail("failedClickElement", "Failed to click element " + message);
-//				}
-//			}
-//		}
-//	}
-//
-//	/***********
-//	 * Method Name : Text Field Clear in Android
-//	 * 
-//	 * @Param by Locator
-//	 */
-//
-//	public static void androidClearText(By byLocator, String text) {
-//		try {
-//			AndroidElement ele = (AndroidElement) getDriver().findElement(byLocator);
-//			TouchAction t = new TouchAction(getDriver());
-//			t.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(ele))
-//					.withDuration(Duration.ofSeconds(2))).release().perform();
-//			DriverManager.getAppiumDriver().findElement(byLocator).clear();
-//			logger.info("Cleared the text in : " + text);
-//			ExtentReporter.extentLogger("clear text", "Cleared the text in : " + text);
-//		} catch (Exception e) {
-//			logger.error(e);
-//		}
-//	}
-//
-//	public static void suggestionTapMidScreen(By locator) throws Exception {
-//		int guideSuggestion = 1;
-//		for (int i = 0; i < guideSuggestion; i++) {
-//			tapOnFirstSuggestion(locator);
-//			waitTime(2000);
-//			if (verifyElementDisplayed(locator)) {
-//				guideSuggestion++;
-//			} else {
-//				break;
-//			}
-//		}
-//	}
-//
-//	/**
-//	 * @tap on the center of center for tour dashboard
-//	 * @param locator
-//	 * @return
-//	 * @throws Exception
-//	 */
-//	public static int tapOnFirstSuggestion(By locator) throws Exception {
-//		WebElement element = getDriver().findElement(locator);
-//		String tourText = getText(locator);
-//		Point point = element.getLocation();
-//		// capturing height & length of the element
-//		int length = element.getSize().getWidth();
-//		int height = element.getSize().getHeight();
-//		// capturing the stating Y co-ordinate
-//		int getY = point.getY();
-//		// moving to the middle of the suggestion from the Y co-ordinate
-//		int middleY = (int) (getY + height * 1.5);
-//		TouchAction ta = new TouchAction(getDriver());
-//		waitTime(2000);
-//		ta.tap(PointOption.point(length / 2, middleY)).perform();
-//		logger.info(tourText + " dashboard tour is displayed Tapped at the center of Screen");
-//		ExtentReporter.extentLogger("Tour", tourText + " dashboard tour is displayed Tapped at the center of Screen");
-//		return middleY;
-//	}
+	//	public boolean verifyElementExistTv(By byLocator, String str) throws Exception {
+	//
+	//		try {
+	//
+	//			if (getDriver().findElement(byLocator).isDisplayed()) {
+	//				ExtentReporter.extentLogger("checkElementPresent", str + " is displayed");
+	//				logger.info("" + str + " is displayed");
+	//				return true;
+	//			}
+	//		} catch (Exception e) {
+	//			ExtentReporter.extentLogger("checkElementPresent", str + " is not displayed");
+	//			logger.info(str + " is not displayed");
+	//			return false;
+	//		}
+	//		return false;
+	//	}
+	//
+	//	public void TVclick(By byLocator, String validationtext) throws Exception {
+	//
+	//		try {
+	//			getDriver().findElement(byLocator).click();
+	//			logger.info("Clicked on " + validationtext);
+	//			ExtentReporter.extentLogger("click", "Clicked on " + validationtext);
+	//		} catch (Exception e) {
+	//			//			logger.error(e);
+	//		}
+	//	}
+	//
+	//	public String TVgetText(By byLocator) throws Exception {
+	//		String Value = null;
+	//		Value = getDriver().findElement(byLocator).getText();
+	//		return Value;
+	//	}
+	//
+	//	public boolean TVVerifyElementNotPresent(By byLocator, int waitTime)
+	//	{
+	//		try{
+	//			WebDriverWait wait = new WebDriverWait(getDriver(), waitTime);
+	//			wait.until(ExpectedConditions.invisibilityOfElementLocated(byLocator));
+	//			return false;
+	//		}catch(Exception e)
+	//		{
+	//			return true;
+	//		}
+	//	}
+	//
+	//
+	//	public String TVgetAttributValue(String property, By byLocator) throws Exception {
+	//		String Value = null;
+	//		Value = getDriver().findElement(byLocator).getAttribute(property);
+	//		return Value;
+	//	}
+	//
+	//	public void BrowsertearDown() {
+	//		DriverManager.getDriver().quit();
+	//	}
+	//
+	//	public void decode() {
+	//		CTUserName = new String(Base64.getDecoder().decode(getParameterFromXML("CTUser")));
+	//		CTPWD = new String(Base64.getDecoder().decode(getParameterFromXML("CTPwd")));
+	//	}
+	//
+	//	/**
+	//	 * The method will wait for the element to not be located for a maximum of given
+	//	 * seconds. The method terminates immediately once the element is located and
+	//	 * throws error.
+	//	 */
+	//	public static void waitForElementAbsence(By locator, int seconds, String message) throws InterruptedException {
+	//		main: for (int time = 0; time <= seconds; time++) {
+	//			try {
+	//				Utilities.findElement(locator);
+	//				logger.error("Located element " + message);
+	//				ExtentReporter.extentLoggerFail("locatedElement", "Located element " + message);
+	//				break main;
+	//			} catch (Exception e) {
+	//				Thread.sleep(1000);
+	//				if (time == seconds) {
+	//					logger.info("Expected behavior: " + message + " is not displayed");
+	//					ExtentReporter.extentLogger("failedLocateElement", "Expected behavior: " + message + " is not displayed");
+	//				}
+	//			}
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * This method will wait for element presence till the given time 
+	//	 * @param locator
+	//	 * @param seconds
+	//	 * @param message
+	//	 * @return
+	//	 * @throws Exception
+	//	 */
+	//	public static boolean waitForElementPresence(By locator, int seconds, String message) throws Exception {
+	//		try {
+	//			String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
+	//			if(platform.equalsIgnoreCase("web")) {
+	//				WebDriverWait w = new WebDriverWait(DriverManager.getDriver(), seconds);
+	//				w.until(ExpectedConditions.presenceOfElementLocated(locator));
+	//				logger.info(message + " is displayed");
+	//				ExtentReporter.extentLogger("element is displayed", message + " is displayed");
+	//				return true;
+	//			}else if(platform.equalsIgnoreCase("mpwa")) {
+	//				WebDriverWait w = new WebDriverWait(DriverManager.getAppiumDriver(), seconds);
+	//				w.until(ExpectedConditions.presenceOfElementLocated(locator));
+	//				logger.info(message + " is displayed");
+	//				ExtentReporter.extentLogger("element is displayed", message + " is displayed");
+	//				return true;
+	//			}
+	//		}
+	//		catch (Exception e) {}
+	//		return false;
+	//	}
+	//
+	//	/**
+	//	 * This method will wait for element presence till the given time 
+	//	 * @param locator
+	//	 * @param seconds
+	//	 * @param message
+	//	 * @return
+	//	 * @throws Exception
+	//	 */
+	//	public static boolean waitForElementVisible(By locator, int seconds, String message) throws Exception {
+	//		try {
+	//			WebDriverWait w = new WebDriverWait(DriverManager.getDriver(), seconds);
+	//			w.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	//			logger.info(message + " is displayed");
+	//			ExtentReporter.extentLogger("element is displayed", message + " is displayed");
+	//			return true;
+	//		} catch (Exception e) {
+	//			return false;
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Generic method to return browser current url
+	//	 * @return
+	//	 * @throws Exception
+	//	 */
+	//	public static String getBrowserCurrentUrl() throws Exception {
+	//		try {
+	//			return (DriverManager.getDriver().getCurrentUrl());
+	//		} catch (Exception e) {
+	//			return "";
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Function to switch to window
+	//	 * @param noOfWindows
+	//	 */
+	//	public static void switchToWindow(int noOfWindows) {
+	//		try {
+	//			wait.until(ExpectedConditions.numberOfWindowsToBe(noOfWindows));
+	//			for (String winHandle : DriverManager.getDriver().getWindowHandles()) {
+	//				win.add(winHandle);
+	//				DriverManager.getDriver().switchTo().window(winHandle);
+	//				DriverManager.getDriver().manage().window().maximize();
+	//			}
+	//		} catch (Exception e) {
+	//			System.out.println("\n No window is displayed!");
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * Method to Move to Element using Actions
+	//	 * @param title
+	//	 * @throws Exception 
+	//	 */
+	//	public static void moveToElementAction(WebElement element, String message) throws Exception {
+	//		try {
+	//			Actions a = new Actions(DriverManager.getDriver());
+	//			a.moveToElement(element).build().perform();
+	//			logger.info("Moved to element "+message);
+	//			ExtentReporter.extentLogger("", "Moved to element "+message);
+	//		}
+	//		catch(Exception e) {
+	//			logger.error("Failed to move to element "+message);
+	//			ExtentReporter.extentLoggerFail("", "Failed to move to element "+message);
+	//		}
+	//	}
+	//
+	//	public static void waitUntilElementVisible_NoCustomMessage(By by) {
+	//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();		
+	//		try {
+	//			if(platform.equalsIgnoreCase("web")) {
+	//				WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 20);
+	//				wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	//			}
+	//			if(platform.equalsIgnoreCase("mpwa")) {
+	//				WebDriverWait wait = new WebDriverWait(DriverManager.getAppiumDriver(), 20);
+	//				wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+	//			}
+	//
+	//		} catch (Exception e) {
+	//			throw new ElementNotVisibleException(getCustomErrorMessageForReport(by), e.getCause());
+	//		} finally {}
+	//	}
+	//
+	//	public static boolean isPresentWithWait(By by) {
+	//		boolean flag = true;
+	//		try {
+	//			waitUntilElementVisible_NoCustomMessage(by);
+	//		} catch (Exception e) {
+	//			flag = false;
+	//		}
+	//		return flag;
+	//	}
+	//
+	//	public static String getCustomErrorMessageForReport(By by) {
+	//		String className = by.getClass().getSimpleName();
+	//		String value = "";
+	//		try {
+	//			Field field = by.getClass().getDeclaredFields()[1];
+	//			field.setAccessible(true);
+	//			value = field.get(by).toString();
+	//		} catch (Exception ignored) {
+	//		}
+	//		return "Timed out waiting for visibility of element located = " + className + "(" + value + ")";
+	//
+	//	}
+	//
+	//	public static void waitForElementAndClick(By locator, int seconds, String message) throws Exception {
+	//		String platform = Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getSuite().getName();
+	//		main: for (int time = 0; time <= seconds; time++) {
+	//			try {
+	//				if(platform.equalsIgnoreCase("web")) {
+	//					DriverManager.getDriver().findElement(locator).click();
+	//				}
+	//				else if(platform.equalsIgnoreCase("mpwa")) {
+	//					DriverManager.getAppiumDriver().findElement(locator).click();
+	//				}
+	//				logger.info("Clicked element " + message);
+	//				ExtentReporter.extentLogger("clickedElement", "Clicked element " + message);
+	//				break main;
+	//			} catch (Exception e) {
+	//				Thread.sleep(1000);
+	//				if (time == seconds) {
+	//					logger.error("Failed to click element " + message);
+	//					ExtentReporter.extentLoggerFail("failedClickElement", "Failed to click element " + message);
+	//				}
+	//			}
+	//		}
+	//	}
+	//
+	//	/***********
+	//	 * Method Name : Text Field Clear in Android
+	//	 * 
+	//	 * @Param by Locator
+	//	 */
+	//
+	//	public static void androidClearText(By byLocator, String text) {
+	//		try {
+	//			AndroidElement ele = (AndroidElement) getDriver().findElement(byLocator);
+	//			TouchAction t = new TouchAction(getDriver());
+	//			t.longPress(LongPressOptions.longPressOptions().withElement(ElementOption.element(ele))
+	//					.withDuration(Duration.ofSeconds(2))).release().perform();
+	//			DriverManager.getAppiumDriver().findElement(byLocator).clear();
+	//			logger.info("Cleared the text in : " + text);
+	//			ExtentReporter.extentLogger("clear text", "Cleared the text in : " + text);
+	//		} catch (Exception e) {
+	//			logger.error(e);
+	//		}
+	//	}
+	//
+	//	public static void suggestionTapMidScreen(By locator) throws Exception {
+	//		int guideSuggestion = 1;
+	//		for (int i = 0; i < guideSuggestion; i++) {
+	//			tapOnFirstSuggestion(locator);
+	//			waitTime(2000);
+	//			if (verifyElementDisplayed(locator)) {
+	//				guideSuggestion++;
+	//			} else {
+	//				break;
+	//			}
+	//		}
+	//	}
+	//
+	//	/**
+	//	 * @tap on the center of center for tour dashboard
+	//	 * @param locator
+	//	 * @return
+	//	 * @throws Exception
+	//	 */
+	//	public static int tapOnFirstSuggestion(By locator) throws Exception {
+	//		WebElement element = getDriver().findElement(locator);
+	//		String tourText = getText(locator);
+	//		Point point = element.getLocation();
+	//		// capturing height & length of the element
+	//		int length = element.getSize().getWidth();
+	//		int height = element.getSize().getHeight();
+	//		// capturing the stating Y co-ordinate
+	//		int getY = point.getY();
+	//		// moving to the middle of the suggestion from the Y co-ordinate
+	//		int middleY = (int) (getY + height * 1.5);
+	//		TouchAction ta = new TouchAction(getDriver());
+	//		waitTime(2000);
+	//		ta.tap(PointOption.point(length / 2, middleY)).perform();
+	//		logger.info(tourText + " dashboard tour is displayed Tapped at the center of Screen");
+	//		ExtentReporter.extentLogger("Tour", tourText + " dashboard tour is displayed Tapped at the center of Screen");
+	//		return middleY;
+	//	}
 
 	//	----------------------------------------------------------------------------------------------------
 
@@ -2927,117 +2927,117 @@ public class Utilities extends ExtentReporter{
 	public static ValidatableResponse MockuserAPI(Object[][] data) throws Exception {
 
 
-			String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
+		String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
 
-			String url = RingPay_BaseURL.testingServiceURL.concat(RingPay_Endpoints.mockUserEndPoint);
-			System.out.println("Url :"+url);
+		String url = RingPay_BaseURL.testingServiceURL.concat(RingPay_Endpoints.mockUserEndPoint);
+		System.out.println("Url :"+url);
 
-			Random rand = new Random();
+		Random rand = new Random();
 
-			HashMap<String, String> req_body = new HashMap<>();
-			//		System.out.println((String) data[0][3]);
-			req_body.put("gender", (String) data[0][0]);
-			req_body.put("encrypted_name", (String) data[0][1]);
-
-
-			JSONObject Myrequestbody = new JSONObject();
-
-			Myrequestbody.put("gender", req_body.get("gender"));
-			Myrequestbody.put("encrypted_name", req_body.get("encrypted_name"));
+		HashMap<String, String> req_body = new HashMap<>();
+		//		System.out.println((String) data[0][3]);
+		req_body.put("gender", (String) data[0][0]);
+		req_body.put("encrypted_name", (String) data[0][1]);
 
 
+		JSONObject Myrequestbody = new JSONObject();
 
-			HashMap<String, Object> headers = new HashMap<>();
-			headers.put("client-id", "zx2789");
-
-
-			//		ValidatableResponse response =RestAssured
-			//				.given()
-			//				.baseUri(url)
-			//				.contentType(ContentType.JSON)
-			//				.headers(headers)
-			//				.body(Myrequestbody.toJSONString())
-			//				.when()
-			//				.post()
-			//				.then();
-
-			ValidatableResponse response=Utilities.postMethodAPI(headers, Myrequestbody,url);
-
-			//		System.out.println("Request Url -->" + url);
-			//		ExtentReporter.extentLogger("", "Request Url -->" + url);
-			System.out.println("Request :"+Myrequestbody);
-			ExtentReporter.extentLogger("", "Request :"+Myrequestbody);
-			String Resp=response.extract().body().asString();
-			System.out.println("Response Body= "+Resp);
-			ExtentReporter.extentLogger("", "Response Body= "+Resp);
-
-			//	       fetching Mobileno
-			String mobileNumber= response.extract().body().jsonPath().get("data.data.mobile_number");
-			System.out.println("MobileNumber : "+mobileNumber);
-
-			//	       fetching Otp
-			Integer Otp= response.extract().body().jsonPath().get("data.data.otp");
-			System.out.println("OTP : "+Otp);
-
-
-			//fetching motherName
-			String motherName= response.extract().body().jsonPath().get("data.data.mother_name");
-			System.out.println("MotherName : "+motherName);
-
-			//fetching Email
-			String email= response.extract().body().jsonPath().get("data.data.email");
-			System.out.println("Email : "+email);
-
-			//fetching Dob
-			String dob= response.extract().body().jsonPath().get("data.data.dob");
-			System.out.println("Dob : "+dob);
-
-			//fetching imei
-			String imei= response.extract().body().jsonPath().get("data.data.imei");
-			System.out.println("imei : "+imei);
-
-			// fetching motherName
-			String mother_name= response.extract().body().jsonPath().get("data.data.mother_name");
-			System.out.println("motherName : "+mother_name);
+		Myrequestbody.put("gender", req_body.get("gender"));
+		Myrequestbody.put("encrypted_name", req_body.get("encrypted_name"));
 
 
 
-
-			// ==================    Write Excel  =======================
-			//	   	   MobileNo to SentOtp
-			ExcelWriteData.excelWrite(filePath,"SendOtp",mobileNumber,1,2);
-
-			//		   MobileNo to User_Authenticate
-			ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,1,2);
-			ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,2,2);
-			ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,3,2);
-			ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,4,2);
-			ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,5,2);
-
-			//         Data to UpdateUser
-			// 		ExcelWriteData.excelWrite(filePath," UpdateUser",firstName,1,1);
-			//		ExcelWriteData.excelWrite(filePath," UpdateUser",middleName,1,2);
-			//		ExcelWriteData.excelWrite(filePath," UpdateUser",lastName,1,3);
-			ExcelWriteData.excelWrite(filePath," UpdateUser",motherName,1,4);
-			ExcelWriteData.excelWrite(filePath," UpdateUser",email,1,5);
-			ExcelWriteData.excelWrite(filePath," UpdateUser",dob,1,6);
-
-			//				    Data to Register_user
-			ExcelWriteData.excelWrite(filePath,"RegisterUser",mobileNumber,1,3);
-			ExcelWriteData.excelWrite(filePath,"RegisterUser",email,1,4);
-			ExcelWriteData.excelWrite(filePath,"RegisterUser",imei,1,8);
-
-			//		 Data to User_Onboarding
-			ExcelWriteData.excelWrite(filePath,"UserOnboarding",imei,1,4);
-
-			//		 Data to Create_Bnpl_transaction
-			ExcelWriteData.excelWrite(filePath,"Create_Bnpl_Transaction",imei,1,6);
-
-			//		 Data to Update User
-			ExcelWriteData.excelWrite(filePath,"UpdateUser",mother_name,1,2);
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("client-id", "zx2789");
 
 
-			return response;
+		//		ValidatableResponse response =RestAssured
+		//				.given()
+		//				.baseUri(url)
+		//				.contentType(ContentType.JSON)
+		//				.headers(headers)
+		//				.body(Myrequestbody.toJSONString())
+		//				.when()
+		//				.post()
+		//				.then();
+
+		ValidatableResponse response=Utilities.postMethodAPI(headers, Myrequestbody,url);
+
+		//		System.out.println("Request Url -->" + url);
+		//		ExtentReporter.extentLogger("", "Request Url -->" + url);
+		System.out.println("Request :"+Myrequestbody);
+		ExtentReporter.extentLogger("", "Request :"+Myrequestbody);
+		String Resp=response.extract().body().asString();
+		System.out.println("Response Body= "+Resp);
+		ExtentReporter.extentLogger("", "Response Body= "+Resp);
+
+		//	       fetching Mobileno
+		String mobileNumber= response.extract().body().jsonPath().get("data.data.mobile_number");
+		System.out.println("MobileNumber : "+mobileNumber);
+
+		//	       fetching Otp
+		Integer Otp= response.extract().body().jsonPath().get("data.data.otp");
+		System.out.println("OTP : "+Otp);
+
+
+		//fetching motherName
+		String motherName= response.extract().body().jsonPath().get("data.data.mother_name");
+		System.out.println("MotherName : "+motherName);
+
+		//fetching Email
+		String email= response.extract().body().jsonPath().get("data.data.email");
+		System.out.println("Email : "+email);
+
+		//fetching Dob
+		String dob= response.extract().body().jsonPath().get("data.data.dob");
+		System.out.println("Dob : "+dob);
+
+		//fetching imei
+		String imei= response.extract().body().jsonPath().get("data.data.imei");
+		System.out.println("imei : "+imei);
+
+		// fetching motherName
+		String mother_name= response.extract().body().jsonPath().get("data.data.mother_name");
+		System.out.println("motherName : "+mother_name);
+
+
+
+
+		// ==================    Write Excel  =======================
+		//	   	   MobileNo to SentOtp
+		ExcelWriteData.excelWrite(filePath,"SendOtp",mobileNumber,1,2);
+
+		//		   MobileNo to User_Authenticate
+		ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,1,2);
+		ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,2,2);
+		ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,3,2);
+		ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,4,2);
+		ExcelWriteData.excelWrite(filePath,"User_Authenticate",mobileNumber,5,2);
+
+		//         Data to UpdateUser
+		// 		ExcelWriteData.excelWrite(filePath," UpdateUser",firstName,1,1);
+		//		ExcelWriteData.excelWrite(filePath," UpdateUser",middleName,1,2);
+		//		ExcelWriteData.excelWrite(filePath," UpdateUser",lastName,1,3);
+		ExcelWriteData.excelWrite(filePath," UpdateUser",motherName,1,4);
+		ExcelWriteData.excelWrite(filePath," UpdateUser",email,1,5);
+		ExcelWriteData.excelWrite(filePath," UpdateUser",dob,1,6);
+
+		//				    Data to Register_user
+		ExcelWriteData.excelWrite(filePath,"RegisterUser",mobileNumber,1,3);
+		ExcelWriteData.excelWrite(filePath,"RegisterUser",email,1,4);
+		ExcelWriteData.excelWrite(filePath,"RegisterUser",imei,1,8);
+
+		//		 Data to User_Onboarding
+		ExcelWriteData.excelWrite(filePath,"UserOnboarding",imei,1,4);
+
+		//		 Data to Create_Bnpl_transaction
+		ExcelWriteData.excelWrite(filePath,"Create_Bnpl_Transaction",imei,1,6);
+
+		//		 Data to Update User
+		ExcelWriteData.excelWrite(filePath,"UpdateUser",mother_name,1,2);
+
+
+		return response;
 
 		//return response;
 
@@ -3742,6 +3742,55 @@ public class Utilities extends ExtentReporter{
 
 	}
 
+	//	========================= OFFER_DETAILS_SCREEN ===================================
+
+	public static ValidatableResponse getOfferAPI() throws Exception {
+
+
+		String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
+
+		String url = RingPay_BaseURL.txnGatewayURL.concat(RingPay_Endpoints.getOffersEndPoint);
+		System.out.println("Url :"+url);
+
+		ValidatableResponse bnplResponse=BasicDetailScreen_Create_Bnpl_Transaction.getApplicationToken_Positive();
+
+		String applicationToken=bnplResponse.extract().body().jsonPath().get("data.application_token");
+		System.out.println("ApplicationToken: "+ applicationToken);
+
+
+		Random rand = new Random();
+
+		//		HashMap<String, String> req_body = new HashMap<>();
+		//		//		System.out.println((String) data[0][3]);
+		//		req_body.put("gender", (String) data[0][0]);
+		//		req_body.put("encrypted_name", (String) data[0][1]);
+		//
+		//
+		//		JSONObject Myrequestbody = new JSONObject();
+		//
+		//		Myrequestbody.put("gender", req_body.get("gender"));
+		//		Myrequestbody.put("encrypted_name", req_body.get("encrypted_name"));
+
+
+
+		HashMap<String, Object> headers = new HashMap<>();
+		headers.put("Authorization", "Bearer "+applicationToken);
+
+
+		ValidatableResponse response=Utilities.getMethodWithHeaderAPI(headers,url);
+
+		//		System.out.println("Request Url -->" + url);
+		//		ExtentReporter.extentLogger("", "Request Url -->" + url);
+		//		System.out.println("Request :"+Myrequestbody);
+		//		ExtentReporter.extentLogger("", "Request :"+Myrequestbody);
+		String Resp=response.extract().body().asString();
+		System.out.println("Response Body= "+Resp);
+		ExtentReporter.extentLogger("", "Response Body= "+Resp);
+
+
+		return response;
+
+	}
 
 
 }

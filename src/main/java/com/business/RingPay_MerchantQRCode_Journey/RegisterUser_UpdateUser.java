@@ -48,7 +48,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 		
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"updateUser_Positive,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
 
 		
 		
@@ -83,7 +83,7 @@ public class RegisterUser_UpdateUser {
 
 		//Body Validation
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"updateUser_Positive,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
 
 
 
@@ -128,7 +128,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"alphaNumericInFirstNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The first name format is invalid.","alphaNumericInFirstNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The first name format is invalid.","alphaNumericInFirstNameField_Negative,Validating message should be success");
 
 		
 
@@ -166,7 +166,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"specialCharacterInFirstNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The first name format is invalid.","specialCharacterInFirstNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The first name format is invalid.","specialCharacterInFirstNameField_Negative,Validating message should be success");
 
 		
 
@@ -206,7 +206,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"spaceInFirstNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The first name field is required.","spaceInFirstNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The first name field is required.","spaceInFirstNameField_Negative,Validating message should be success");
 
 		
 
@@ -247,7 +247,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"alphaNumericInLastNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The last name format is invalid.","alphaNumericInLastNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The last name format is invalid.","alphaNumericInLastNameField_Negative,Validating message should be success");
 
 		
 		//Schema Validation
@@ -285,7 +285,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"specialCharacterInLastNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The last name format is invalid.","specialCharacterInLastNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The last name format is invalid.","specialCharacterInLastNameField_Negative,Validating message should be success");
 
 		
 		//Schema Validation
@@ -323,7 +323,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"spaceInLastNameField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The last name field is required.","spaceInLastNameField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The last name field is required.","spaceInLastNameField_Negative,Validating message should be success");
 
 		
 		//Schema Validation
@@ -361,7 +361,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"invalidEmailId_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The email must be a valid email address.","invalidEmailId_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The email must be a valid email address.","invalidEmailId_Negative,Validating message should be success");
 
 		
 
@@ -400,7 +400,7 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"spaceInEmailIdField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"The email must be a valid email address.","spaceInEmailIdField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"The email must be a valid email address.","spaceInEmailIdField_Negative,Validating message should be success");
 
 
 		//Schema Validation

@@ -35,7 +35,7 @@ public class RegisterUser_Register_User {
 		Validation.validatingStatusCode(responseBody,200,"login_Positive,Validating 200 Success Response");
 	        
 		
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"User Added Successfully","registerUserAfterLogin_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"User Added Successfully","registerUserAfterLogin_Positive,Validating message should be success");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.user_reference_number"),"registerUserAfterLogin_Positive,Validating user_reference_number is not null");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "registerUserAfterLogin_Positive,Validating success Should be true");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.global_device_id"),"registerUserAfterLogin_Positive,Validating user_id is not null");

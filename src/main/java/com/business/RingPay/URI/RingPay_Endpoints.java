@@ -16,5 +16,8 @@ public class RingPay_Endpoints {
 	public static String updateUserStatusEndPoint="/api/v1/users";
 	public static String checkApplicationEligibilityEndPoint="/api/v1/applications/check-application-eligibility";
 	public static String addAddressEndPoint="/api/v1/users/applications/address";
+	public static String getOffersEndPoint="/api/v1/applications/line/offer";
 
+	
+	
 }

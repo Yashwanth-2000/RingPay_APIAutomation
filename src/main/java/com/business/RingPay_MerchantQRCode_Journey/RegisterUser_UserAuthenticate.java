@@ -38,7 +38,7 @@ public class RegisterUser_UserAuthenticate {
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"userAuthenticate,Validating request_id is not null");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "userAuthenticate,Validating success is true");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","userAuthenticate,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","userAuthenticate,Validating message should be success");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.user_token"),"userAuthenticate,Validating user_token is not null");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.encrypted_user_reference_number"),"userAuthenticate,Validating encrypted_user_reference_number is not null");
 
@@ -70,7 +70,7 @@ public class RegisterUser_UserAuthenticate {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"invalidOtp_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","invalidOtp_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","invalidOtp_Negative,Validating message should be success");
 
 
 		//Schema Validation
@@ -94,7 +94,7 @@ public class RegisterUser_UserAuthenticate {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"expiredOtp_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","expiredOtp_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","expiredOtp_Negative,Validating message should be success");
 
 
 		//Schema Validation
@@ -114,18 +114,15 @@ public class RegisterUser_UserAuthenticate {
 		int responseBody=response.extract().statusCode();
 		Validation.validatingStatusCode(responseBody,400,"alphabetInOtpField_Negative,Validating 400 Bad request");
 
-
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"alphabetInOtpField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","alphabetInOtpField_Negative,Validating message should be success");
-
-
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","alphabetInOtpField_Negative,Validating message should be success");
 
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_400_schema.json")), response.extract().body().asString(), "alphabetInOtpField_Negative,expectedJsonSchema");
-
+	
 		
 	}
 
@@ -143,7 +140,7 @@ public class RegisterUser_UserAuthenticate {
 		//Body Validation
 
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"lessThan6DigitsNoInOtpField_Negative,Validating request_id is not null");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","lessThan6DigitsNoInOtpField_Negative,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Otp does not match or have expired","lessThan6DigitsNoInOtpField_Negative,Validating message should be success");
 
 
 		//Schema Validation

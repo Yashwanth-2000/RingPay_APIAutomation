@@ -39,7 +39,7 @@ public class RegisterUser_Onload {
 	        //Body Validation
 	        Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"Onload,Request_Id value should not be null");
 
-	        Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","Onload Validating messsage value");
+	        Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","Onload Validating messsage value");
 	      
 	        
 	        //Schema Validation

@@ -29,7 +29,7 @@ public class RegisterUser_Login {
 
 	public static ValidatableResponse login_Positive() throws Exception {
 
-		String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
+//		String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
 
 
 		Object[][] data = dataProvider.UpdateUserAPIData("update_user_200");
@@ -47,7 +47,7 @@ public class RegisterUser_Login {
 		
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"login_Positive,Validating request_id is not null");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "login_Positive,Validating success should be true");
-		Validation.assertEqualsValidatingSuccessValue(response.extract().body().jsonPath().get("message"),"Success","login_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","login_Positive,Validating message should be success");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.user_reference_number"),"login_Positive,Validating user_reference_number is not null");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.first_name"),"login_Positive,Validating first_name is not null");
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("data.last_name"),"login_Positive,Validating last_name is not null");
