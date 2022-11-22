@@ -91,7 +91,7 @@ public class RegisterUser_UpdateUser {
 
 		Thread.sleep(2000);
 		
-		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuser_200_schema.json")), response.extract().body().asString(), "updateUser_Positive,expectedJsonSchema");
+//		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuser_200_schema.json")), response.extract().body().asString(), "updateUser_Positive,expectedJsonSchema");
 
 		
 		return response;
