@@ -1,4 +1,4 @@
-package com.emailReport;
+package com.driverInstance.emailReport;
 
 import java.util.Properties;
 import javax.activation.DataHandler;
