@@ -36,13 +36,9 @@ public class RegisterUser_UpdateUser {
 		Object[][] data = dataProvider.UpdateUserAPIData("update_user_200");
 		ValidatableResponse response = Utilities.updateUserAPI(data);
 
-
-
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
 		Validation.validatingStatusCode(responseBody,200,"updateUser_Positive,Validating 200 Success Response");
-
-
 
 
 		//Body Validation
@@ -50,9 +46,6 @@ public class RegisterUser_UpdateUser {
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"updateUser_Positive,Validating request_id is not null");
 		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
 
-		
-		
-		//		//Schema Validation
 
 		return response;
 
@@ -84,7 +77,6 @@ public class RegisterUser_UpdateUser {
 		//Body Validation
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"updateUser_Positive,Validating request_id is not null");
 		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUser_Positive,Validating message should be success");
-
 
 
 		//Schema Validation
