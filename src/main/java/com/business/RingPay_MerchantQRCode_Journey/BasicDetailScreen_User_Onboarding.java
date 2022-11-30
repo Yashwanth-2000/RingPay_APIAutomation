@@ -27,6 +27,41 @@ public class BasicDetailScreen_User_Onboarding {
 		Object[][] data = dataProvider.UserOnboardingAPIData("user_onboarding_200");
 		ValidatableResponse response = Utilities.User_OnboardingAPI(data);
 
+		String line_application_reference_number = response.extract().body().jsonPath()
+				.get("data.details.line_application_reference_number");
+		System.out.println("line_application_reference_number: " + line_application_reference_number);
+
+		
+//		Thread.sleep(5000);
+//		
+//		String dataBase =Utilities.executeQuery("SELECT * FROM db_tradofina.line_application where line_application_reference_number='"+ line_application_reference_number+"';",2);
+//		System.out.println("DataBase  :======================= "+ dataBase);
+//		Validation.assertEquals(line_application_reference_number,dataBase,"userOnbording_Positive,Validating DataBase");
+
+		
+		
+		//Status Code Validation
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,200,"userAuthenticate,Validating 200 Success Response");
+
+
+		//Body Validation
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","userOnbording_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.stage"),"basic_details_pending","userOnbording_Positive,Validating message should be success");
+		Validation.assertEquals(response.extract().body().jsonPath().get("data.stage_detail"),"apply","userOnbording_Positive,Validating message should be success");
+
+
+		//Schema Validation
+
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//useronboarding_200_schema.json")), response.extract().body().asString(), "userOnbording_Positive,expectedJsonSchema");
+
+	}
+
+	public void userOnbordingWithValidField_Positive() throws Exception {
+
+		Object[][] data = dataProvider.UserOnboardingAPIData("user_onboarding_200");
+		ValidatableResponse response = Utilities.User_OnboardingAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -46,7 +81,7 @@ public class BasicDetailScreen_User_Onboarding {
 
 		
 	}
-
+	
 	public void latitudeFieldEmpty_Negative() throws Exception {
 
 		Object[][] data = dataProvider.UserOnboardingAPIData("latitude_field_empty_400");

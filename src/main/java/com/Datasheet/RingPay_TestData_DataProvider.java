@@ -65,7 +65,7 @@ public class RingPay_TestData_DataProvider {
 	
 	@DataProvider(name = "UpdateUserStatusAPI")
     public static Object[][] UpdateUserStatusAPIData(String testCaseName) throws IOException{
-		return Excel.getTestData(excelPath(), "UpdateUser", testCaseName);
+		return Excel.getTestData(excelPath(), "UpdateUserStatus", testCaseName);
 	}
 	
 	@DataProvider(name = "AddAddressAPI")
@@ -73,5 +73,34 @@ public class RingPay_TestData_DataProvider {
 		return Excel.getTestData(excelPath(), "AddAddress", testCaseName);
 	}
 	
+	@DataProvider(name = "PaymentOptionAPI")
+    public static Object[][] PaymentOptionAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "PaymentOption", testCaseName);
+	}
+	
+	@DataProvider(name = "TxnInitiateAPI")
+    public static Object[][] TxnInitiateAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "Txn_Initiate", testCaseName);
+	}
+	
+	@DataProvider(name = "TxnCompleteAPI")
+    public static Object[][] TxnCompleteAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "Txn_Complete", testCaseName);
+	}
+	
+	@DataProvider(name = "CurrentSpendAPI")
+    public static Object[][] CurrentSpendAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "Current_Spend", testCaseName);
+	}
+	
+	@DataProvider(name = "ValidateAPI")
+    public static Object[][] ValidateAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "Validate", testCaseName);
+	}
+	
+	@DataProvider(name = "NotifyAPI")
+    public static Object[][] NotifyAPIData(String testCaseName) throws IOException{
+		return Excel.getTestData(excelPath(), "Notify", testCaseName);
+	}
 	
 }

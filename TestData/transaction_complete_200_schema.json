@@ -1,0 +1,89 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome8",
+    "definitions": {
+        "Welcome8": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome8"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "txn_decline_reason": {
+                    "type": "string"
+                },
+                "is_txn_allowed": {
+                    "type": "boolean"
+                },
+                "display_message": {
+                    "type": "string"
+                },
+                "transaction": {
+                    "$ref": "#/definitions/Transaction"
+                }
+            },
+            "required": [
+                "display_message",
+                "is_txn_allowed",
+                "transaction",
+                "txn_decline_reason"
+            ],
+            "title": "Data"
+        },
+        "Transaction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transaction_reference_number": {
+                    "type": "string"
+                },
+                "product_value": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "settlement_status": {
+                    "type": "string"
+                },
+                "cashback_amount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "cashback_amount",
+                "product_value",
+                "settlement_status",
+                "status",
+                "transaction_reference_number"
+            ],
+            "title": "Transaction"
+        }
+    }
+}

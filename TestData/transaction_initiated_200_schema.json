@@ -1,0 +1,85 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome2",
+    "definitions": {
+        "Welcome2": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome2"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transaction": {
+                    "$ref": "#/definitions/Transaction"
+                },
+                "is_txn_allowed": {
+                    "type": "boolean"
+                },
+                "txn_decline_reason": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "is_txn_allowed",
+                "transaction",
+                "txn_decline_reason"
+            ],
+            "title": "Data"
+        },
+        "Transaction": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "transaction_reference_number": {
+                    "type": "string"
+                },
+                "product_value": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "settlement_status": {
+                    "type": "null"
+                },
+                "cashback_amount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "cashback_amount",
+                "product_value",
+                "settlement_status",
+                "status",
+                "transaction_reference_number"
+            ],
+            "title": "Transaction"
+        }
+    }
+}

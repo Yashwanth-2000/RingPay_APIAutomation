@@ -1,0 +1,282 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome9",
+    "definitions": {
+        "Welcome9": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome9"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "allow_modes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/AllowMode"
+                    }
+                },
+                "virtual_account": {
+                    "type": "null"
+                },
+                "virtual_upi": {
+                    "type": "null"
+                },
+                "bnpl_line": {
+                    "$ref": "#/definitions/BnplLine"
+                },
+                "upi_details": {
+                    "$ref": "#/definitions/UpiDetails"
+                },
+                "max_allowed_upi_per_user": {
+                    "type": "null"
+                }
+            },
+            "required": [
+                "allow_modes",
+                "bnpl_line",
+                "max_allowed_upi_per_user",
+                "upi_details",
+                "virtual_account",
+                "virtual_upi"
+            ],
+            "title": "Data"
+        },
+        "AllowMode": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mode": {
+                    "type": "string"
+                },
+                "surcharge_amount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "mode",
+                "surcharge_amount"
+            ],
+            "title": "AllowMode"
+        },
+        "BnplLine": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "is_enabled": {
+                    "type": "boolean"
+                },
+                "bnpl": {
+                    "$ref": "#/definitions/Bnpl"
+                }
+            },
+            "required": [
+                "bnpl",
+                "is_enabled"
+            ],
+            "title": "BnplLine"
+        },
+        "Bnpl": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "is_line_present": {
+                    "type": "boolean"
+                },
+                "eligibility": {
+                    "$ref": "#/definitions/Eligibility"
+                },
+                "line": {
+                    "$ref": "#/definitions/Line"
+                },
+                "cashback_percentage": {
+                    "type": "string"
+                },
+                "cash_fee_percentage_with_gst": {
+                    "type": "string"
+                },
+                "micropayment_configuration_enabled": {
+                    "type": "boolean"
+                },
+                "micropayment_minimum_txn_amount": {
+                    "type": "integer"
+                },
+                "micropayment_fees_percentage": {
+                    "type": "integer"
+                },
+                "txn_fee_display_msg": {
+                    "type": "string"
+                },
+                "free_txn_fee_display_msg": {
+                    "type": "string"
+                },
+                "high_value_txn_fee_amount": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "cash_fee_percentage_with_gst",
+                "cashback_percentage",
+                "eligibility",
+                "free_txn_fee_display_msg",
+                "high_value_txn_fee_amount",
+                "is_line_present",
+                "line",
+                "micropayment_configuration_enabled",
+                "micropayment_fees_percentage",
+                "micropayment_minimum_txn_amount",
+                "txn_fee_display_msg"
+            ],
+            "title": "Bnpl"
+        },
+        "Eligibility": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "is_eligible": {
+                    "type": "boolean"
+                },
+                "eligible_credit_limit": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "eligible_credit_limit",
+                "is_eligible"
+            ],
+            "title": "Eligibility"
+        },
+        "Line": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "line_reference_number": {
+                    "type": "string"
+                },
+                "user_reference_number": {
+                    "type": "string"
+                },
+                "credit_limit": {
+                    "type": "integer"
+                },
+                "credit_used": {
+                    "type": "integer"
+                },
+                "credit_available": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "created_at": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "is_loan_present": {
+                    "type": "boolean"
+                },
+                "bnpl_first_transaction_limit": {
+                    "type": "string"
+                },
+                "bnpl_first_transaction_limit_msg": {
+                    "type": "string"
+                },
+                "bnpl_subsequent_transaction_limit": {
+                    "type": "integer"
+                },
+                "bnpl_subsequent_transaction_limit_msg": {
+                    "type": "string"
+                },
+                "bank_transfer_fee": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "bank_transfer_fee",
+                "bnpl_first_transaction_limit",
+                "bnpl_first_transaction_limit_msg",
+                "bnpl_subsequent_transaction_limit",
+                "bnpl_subsequent_transaction_limit_msg",
+                "created_at",
+                "credit_available",
+                "credit_limit",
+                "credit_used",
+                "is_loan_present",
+                "line_reference_number",
+                "status",
+                "user_reference_number"
+            ],
+            "title": "Line"
+        },
+        "UpiDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "upi_handle_reference_number": {
+                    "type": "string"
+                },
+                "upi_id": {
+                    "type": "string"
+                },
+                "verified_name": {
+                    "type": "string"
+                },
+                "merchant_logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "qt-uri-protocols": [
+                        "https"
+                    ],
+                    "qt-uri-extensions": [
+                        ".svg"
+                    ]
+                },
+                "self_transfer": {
+                    "type": "boolean"
+                },
+                "is_p2p": {
+                    "type": "boolean"
+                },
+                "is_icici_p2p_blocked_enabled": {
+                    "type": "string",
+                    "format": "integer"
+                }
+            },
+            "required": [
+                "is_icici_p2p_blocked_enabled",
+                "is_p2p",
+                "merchant_logo",
+                "self_transfer",
+                "upi_handle_reference_number",
+                "upi_id",
+                "verified_name"
+            ],
+            "title": "UpiDetails"
+        }
+    }
+}

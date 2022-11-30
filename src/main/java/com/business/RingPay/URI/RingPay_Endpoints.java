@@ -17,7 +17,21 @@ public class RingPay_Endpoints {
 	public static String checkApplicationEligibilityEndPoint="/api/v1/applications/check-application-eligibility";
 	public static String addAddressEndPoint="/api/v1/users/applications/address";
 	public static String getOffersEndPoint="/api/v1/applications/line/offer";
+	public static String userConcentEndPoint="/api/v1/applications/user-consent";
 
+	public static String bnplLinesEndPoint="/api/v1/bnpl/lines";
+	public static String paymentOptionEndPoint="/api/v1/users/get-payment-options";
+	public static String txnInitiateEndPoint="/api/v1/bnpl/transactions/initiate";
+	public static String txnCompleteEndPoint="/api/v1/bnpl/transactions/complete";
+
+	public static String currentSpendsEndPoint="/api/v1/users/home-screen";
+	public static String validateEndPoint="/api/v1/yesbank/vpa-webhook/validate";
+	public static String notifyEndPoint="/api/v1/yesbank/vpa-webhook/notify";
+	public static String getSettlementEndPoint="/api/v1/bnpl/transactions/";
+
+	
+	
+	
 	
 	
 }

@@ -23,10 +23,10 @@ import io.restassured.response.ValidatableResponse;
 public class RegisterUser_Mock_User {
 
 
-	RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
+	static RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
 
-	public void mock_User_200() throws Exception {
+	public static ValidatableResponse mock_User_200() throws Exception {
 //		long startTime=System.currentTimeMillis();
 		Object[][] data = dataProvider.Mock_UserAPIData("user_200");
 		ValidatableResponse response = Utilities.MockuserAPI(data);
@@ -42,10 +42,11 @@ public class RegisterUser_Mock_User {
 //		long endTime=System.currentTimeMillis();
 //		
 //		ExtentReporter.extentLogger("Time Stamp", "Api Time 'mock_User_200'  : "+(endTime-startTime)+" milliseconds");
+	
+	return	response;
+	
 	}
 
-		 
-	
 	}
 	
 

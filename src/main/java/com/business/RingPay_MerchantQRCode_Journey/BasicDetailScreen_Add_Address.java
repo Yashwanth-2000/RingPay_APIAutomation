@@ -25,33 +25,20 @@ public class BasicDetailScreen_Add_Address {
 			Object[][] data = dataProvider.AddAddressAPIData("add_address");
 			ValidatableResponse response = Utilities.AddAddressAPI(data);
 
+//			ValidatableResponse responseCheckApplicationEligibility = Utilities.CheckApplicationEligibilityAPI();
+
 
 			//Status Code Validation
-//			Assert.assertEquals(response.extract().statusCode(), 200);
-//			Utilities.log.info("addAddress , Validating 200 Success Response");
-//			ExtentReporter.extentLogger("addAddress", "addAddress,Validating 200 Success Response");
 
 			 int responseBody=response.extract().statusCode();
 				Validation.validatingStatusCode(responseBody,200,"addAddress,Validating 200 Success Response");
 		        
-			
 			//Body Validation
 				Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"addAddress,Validating request_id is not null");
 				Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","addAddress,Validating message should be success");
 
-//			assertNotNull("'request_id' is not null", response.extract().body().jsonPath().get("request_id"));
-//			Utilities.log.info("addAddress , Validating request_id is not null");
-//			ExtentReporter.extentLogger("addAddress", "Validating request_id is not null");
-//			Assert.assertEquals(response.extract().body().jsonPath().get("message"), "Success");
-//			Utilities.log.info("addAddress , Validating messsage value");
-//			ExtentReporter.extentLogger("addAddress", "addAddress,Validating messsage value");
-
 
 //			//Schema Validation
-//			String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuserstatus_200_schema.json"));
-//			assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-//			Utilities.log.info("addAddress , expectedJsonSchema");
-//			ExtentReporter.extentLogger("addAddress", "addAddress,expectedJsonSchema");
 //				Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuserstatus_200_schema.json")), response.extract().body().asString(), "addAddress,expectedJsonSchema");
 
 				

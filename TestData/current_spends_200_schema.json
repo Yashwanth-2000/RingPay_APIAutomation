@@ -1,0 +1,272 @@
+{
+    "$schema": "http://json-schema.org/draft-06/schema#",
+    "$ref": "#/definitions/Welcome6",
+    "definitions": {
+        "Welcome6": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "request_id": {
+                    "type": "string"
+                },
+                "success": {
+                    "type": "boolean"
+                },
+                "response_code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "data": {
+                    "$ref": "#/definitions/Data"
+                }
+            },
+            "required": [
+                "data",
+                "message",
+                "request_id",
+                "response_code",
+                "success"
+            ],
+            "title": "Welcome6"
+        },
+        "Data": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "cards": {
+                    "$ref": "#/definitions/Cards"
+                }
+            },
+            "required": [
+                "cards"
+            ],
+            "title": "Data"
+        },
+        "Cards": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "bnpl": {
+                    "$ref": "#/definitions/Bnpl"
+                },
+                "payments": {
+                    "$ref": "#/definitions/Payments"
+                }
+            },
+            "required": [
+                "bnpl",
+                "payments"
+            ],
+            "title": "Cards"
+        },
+        "Bnpl": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "stage": {
+                    "type": "string"
+                },
+                "banner_details": {
+                    "$ref": "#/definitions/BnplBannerDetails"
+                },
+                "details": {
+                    "$ref": "#/definitions/BnplDetails"
+                },
+                "scan_pay": {
+                    "type": "boolean"
+                },
+                "pin_present": {
+                    "type": "boolean"
+                },
+                "is_transit_user": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "banner_details",
+                "details",
+                "is_transit_user",
+                "pin_present",
+                "scan_pay",
+                "stage"
+            ],
+            "title": "Bnpl"
+        },
+        "BnplBannerDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "title": "BnplBannerDetails"
+        },
+        "BnplDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "line_reference_number": {
+                    "type": "string"
+                },
+                "line_status": {
+                    "type": "string"
+                },
+                "credit_limit": {
+                    "type": "integer"
+                },
+                "credit_used": {
+                    "type": "integer"
+                },
+                "credit_available": {
+                    "type": "integer"
+                },
+                "txn_fees_percentage_with_gst": {
+                    "type": "integer"
+                },
+                "statement_generated_for_month": {
+                    "type": "null"
+                },
+                "statement_generated_date": {
+                    "type": "null"
+                },
+                "statement_due_date": {
+                    "type": "null"
+                },
+                "statement_outstanding_amount": {
+                    "type": "integer"
+                },
+                "latest_statement_period_start_date": {
+                    "type": "string"
+                },
+                "latest_statement_period_end_date": {
+                    "type": "string"
+                },
+                "statement_period_message": {
+                    "type": "string"
+                },
+                "line_step_status": {
+                    "type": "string"
+                },
+                "line_step_accept_datetime": {
+                    "type": "string"
+                },
+                "scan_pay_enabled": {
+                    "type": "integer"
+                },
+                "bank_transfer_enabled": {
+                    "type": "integer"
+                },
+                "cashback_percentage": {
+                    "type": "integer"
+                },
+                "cashback_percentage_text": {
+                    "type": "null"
+                },
+                "credit_card_enabled": {
+                    "type": "integer"
+                },
+                "credit_card_partner": {
+                    "type": "string"
+                },
+                "credit_card_details": {
+                    "type": "null"
+                }
+            },
+            "required": [
+                "bank_transfer_enabled",
+                "cashback_percentage",
+                "cashback_percentage_text",
+                "credit_available",
+                "credit_card_details",
+                "credit_card_enabled",
+                "credit_card_partner",
+                "credit_limit",
+                "credit_used",
+                "latest_statement_period_end_date",
+                "latest_statement_period_start_date",
+                "line_reference_number",
+                "line_status",
+                "line_step_accept_datetime",
+                "line_step_status",
+                "scan_pay_enabled",
+                "statement_due_date",
+                "statement_generated_date",
+                "statement_generated_for_month",
+                "statement_outstanding_amount",
+                "statement_period_message",
+                "txn_fees_percentage_with_gst"
+            ],
+            "title": "BnplDetails"
+        },
+        "Payments": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "stage": {
+                    "type": "string"
+                },
+                "details": {
+                    "$ref": "#/definitions/PaymentsDetails"
+                },
+                "banner_details": {
+                    "$ref": "#/definitions/PaymentsBannerDetails"
+                }
+            },
+            "required": [
+                "banner_details",
+                "details",
+                "stage"
+            ],
+            "title": "Payments"
+        },
+        "PaymentsBannerDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "title": {
+                    "type": "string"
+                },
+                "line_1": {
+                    "type": "string"
+                },
+                "line_2": {
+                    "type": "string"
+                },
+                "line_3": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "line_1",
+                "line_2",
+                "line_3",
+                "title"
+            ],
+            "title": "PaymentsBannerDetails"
+        },
+        "PaymentsDetails": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "due_amount": {
+                    "type": "integer"
+                },
+                "upcoming_amount": {
+                    "type": "integer"
+                },
+                "days_until_next_payment": {
+                    "type": "integer"
+                },
+                "earliest_unpaid_emi_date": {
+                    "type": "string",
+                    "format": "date"
+                }
+            },
+            "required": [
+                "days_until_next_payment",
+                "due_amount",
+                "earliest_unpaid_emi_date",
+                "upcoming_amount"
+            ],
+            "title": "PaymentsDetails"
+        }
+    }
+}
