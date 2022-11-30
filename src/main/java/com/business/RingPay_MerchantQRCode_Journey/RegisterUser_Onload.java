@@ -24,31 +24,36 @@ import io.restassured.response.ValidatableResponse;
 
 
 public class RegisterUser_Onload {
-	
-	 public void onload_Positive() throws Exception {
-//	        Object[][] data = dataProvider.Mock_UserAPIData("user_200");
-	        ValidatableResponse response = Utilities.OnloadAPI();
 
-	        //Status Code Validation
-	        
-	        int responseBody=response.extract().statusCode();
-	        Validation.validatingStatusCode(responseBody,200,"Onload,Validating 200 Success Response");
-	        
+	public void onload_Positive() throws Exception {
+		
+		//			Start Time
+		long startTime=System.currentTimeMillis();
 
-	     
-	        //Body Validation
-	        Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"Onload,Request_Id value should not be null");
+		ValidatableResponse response = Utilities.OnloadAPI();
 
-	        Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","Onload Validating messsage value");
-	      
-	        
-	        //Schema Validation
-			
+		//Status Code Validation
+
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,200,"Onload,Validating 200 Success Response");
+
+
+
+		//Body Validation
+		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"Onload,Request_Id value should not be null");
+
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","Onload Validating messsage value");
+
+
+		//Schema Validation
+
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//onload_200_schema.json")), response.extract().body().asString(), "Onload,expectedJsonSchema");
 
-	        
-	 }
-	 
-	 
-	        
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'onload_Positive'  : "+(endTime-startTime)+" milliseconds");
+
+	}
+
 }

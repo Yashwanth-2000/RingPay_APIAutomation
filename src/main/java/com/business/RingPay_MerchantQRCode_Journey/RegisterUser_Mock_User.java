@@ -26,27 +26,31 @@ public class RegisterUser_Mock_User {
 	static RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
 
-	public static ValidatableResponse mock_User_200() throws Exception {
-//		long startTime=System.currentTimeMillis();
+	public static ValidatableResponse mock_User_Positive() throws Exception {
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.Mock_UserAPIData("user_200");
 		ValidatableResponse response = Utilities.MockuserAPI(data);
 
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
-		Validation.validatingStatusCode(responseBody,200,"Mock_User,Validating 200 Success Response");
+		Validation.validatingStatusCode(responseBody,200,"mock_User_Positive,Validating 200 Success Response");
 
 
 		//Schema Validation
-		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//mock_user_200_schema.json")), response.extract().body().asString(), "Mock_User,expectedJsonSchema");
-//		long endTime=System.currentTimeMillis();
-//		
-//		ExtentReporter.extentLogger("Time Stamp", "Api Time 'mock_User_200'  : "+(endTime-startTime)+" milliseconds");
-	
-	return	response;
-	
-	}
+		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//mock_user_200_schema.json")), response.extract().body().asString(), "mock_User_Positive,expectedJsonSchema");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'mock_User_Positive'  : "+(endTime-startTime)+" milliseconds");
+
+		return	response;
 
 	}
-	
+
+}
+
 

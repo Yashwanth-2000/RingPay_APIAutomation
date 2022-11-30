@@ -19,10 +19,16 @@ import io.restassured.response.ValidatableResponse;
 
 public class RegisterUser_UserAuthenticate {
 
+
 	static	RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
+
 
 	public static ValidatableResponse userToken_Positive() throws Exception {
 
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
+		
 		RegisterUser_OTPSend.valid_MobileNo_UserExist_True_Positive();
 
 		Object[][] data = RingPay_TestData_DataProvider.UserAuthenticateAPIData("auth_200");
@@ -44,13 +50,12 @@ public class RegisterUser_UserAuthenticate {
 
 
 		//Schema Validation
-		//		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_200_schema.json"));
-		//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		//		Utilities.log.info("valid_otp_200 , expectedJsonSchema");
-		//		ExtentReporter.extentLogger("valid_otp_200", "valid_otp_200,expectedJsonSchema");
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_200_schema.json")), response.extract().body().asString(), "userAuthenticate,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'userToken_Positive'  : "+(endTime-startTime)+" milliseconds");
 
 		return response;
 
@@ -59,8 +64,13 @@ public class RegisterUser_UserAuthenticate {
 
 
 	public void invalidOtp_Negative() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
+
 		Object[][] data = RingPay_TestData_DataProvider.UserAuthenticateAPIData("invalidotp_400");
-		ValidatableResponse response = Utilities.invalidOtpAPI(data);
+		ValidatableResponse response = Utilities.userTokenAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -77,13 +87,21 @@ public class RegisterUser_UserAuthenticate {
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_400_schema.json")), response.extract().body().asString(), "invalidOtp_Negative,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'invalidOtp_Negative'  : "+(endTime-startTime)+" milliseconds");
+
 
 	}
 
 
 	public void expiredOtp_Negative() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = RingPay_TestData_DataProvider.UserAuthenticateAPIData("expiredotp_400");
-		ValidatableResponse response = Utilities.invalidOtpAPI(data);
+		ValidatableResponse response = Utilities.userTokenAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -101,14 +119,21 @@ public class RegisterUser_UserAuthenticate {
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_400_schema.json")), response.extract().body().asString(), "expiredOtp_Negative,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'expiredOtp_Negative'  : "+(endTime-startTime)+" milliseconds");
+
 
 	}
 
 
 	public void alphabetInOtpField_Negative() throws Exception {
 		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = RingPay_TestData_DataProvider.UserAuthenticateAPIData("alphabetinfield_400");
-		ValidatableResponse response = Utilities.invalidOtpAPI(data);
+		ValidatableResponse response = Utilities.userTokenAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -122,14 +147,21 @@ public class RegisterUser_UserAuthenticate {
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_400_schema.json")), response.extract().body().asString(), "alphabetInOtpField_Negative,expectedJsonSchema");
-	
-		
+
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'alphabetInOtpField_Negative'  : "+(endTime-startTime)+" milliseconds");
+
+
 	}
 
 	public void lessThan6DigitsNoInOtpField_Negative() throws Exception {
-		
+
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = RingPay_TestData_DataProvider.UserAuthenticateAPIData("lessthan6digit0tp_400");
-		ValidatableResponse response = Utilities.invalidOtpAPI(data);
+		ValidatableResponse response = Utilities.userTokenAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -147,7 +179,11 @@ public class RegisterUser_UserAuthenticate {
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//auth_400_schema.json")), response.extract().body().asString(), "lessThan6DigitsNoInOtpField_Negative,expectedJsonSchema");
 
-		
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'lessThan6DigitsNoInOtpField_Negative'  : "+(endTime-startTime)+" milliseconds");
+
+
 	}
 
 

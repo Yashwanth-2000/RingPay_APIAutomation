@@ -26,15 +26,15 @@ public class RegisterUser_Login {
 
 	static RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
-
 	public static ValidatableResponse login_Positive() throws Exception {
 
 //		String filePath=  System.getProperty("user.dir")+"\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
 
+		//		Start Time
+		long startTime=System.currentTimeMillis();
 
 		Object[][] data = dataProvider.UpdateUserAPIData("update_user_200");
         ValidatableResponse response = Utilities.loginAPI();
-		
 		
 
 		//Status Code Validation
@@ -61,6 +61,11 @@ public class RegisterUser_Login {
 		//Schema Validation
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//login_200_schema.json")), response.extract().body().asString(), "login_Positive,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'login_Positive'  : "+(endTime-startTime)+" milliseconds");
+
+		
 		return response;
 	}
 }

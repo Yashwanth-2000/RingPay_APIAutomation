@@ -25,6 +25,9 @@ public class RegisterUser_Register_User {
 
 	public static ValidatableResponse registerUserAfterLogin_Positive() throws Exception {
 		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.RegisterUserAPIData("registeruser_200");
 		ValidatableResponse response = Utilities.RegisterUserAPI(data);
 		
@@ -45,6 +48,10 @@ public class RegisterUser_Register_User {
 		
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//registeruser_200_schema.json")), response.extract().body().asString(), "registerUserAfterLogin_Positive,expectedJsonSchema");
 		
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'registerUser_Positive'  : "+(endTime-startTime)+" milliseconds");
+
 		return response;
 	
 	}

@@ -27,6 +27,9 @@ public class RegisterUser_Get_Details_VPA {
 
 	public void get_Details_Vpa_Positive() throws Exception {
 
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.Get_Details_VPA_APIData("get_vpn");
 		ValidatableResponse response = Utilities.Get_Details_VPA_API(data);
 
@@ -48,6 +51,10 @@ public class RegisterUser_Get_Details_VPA {
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//getdetailsvpn_200_schema.json")), response.extract().body().asString(), "Mock_User,expectedJsonSchema");
+
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'get_Details_Vpa_Positive'  : "+(endTime-startTime)+" milliseconds");
 
 	}
 

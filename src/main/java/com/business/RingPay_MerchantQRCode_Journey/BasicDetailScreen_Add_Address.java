@@ -18,32 +18,38 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.ValidatableResponse;
 
 public class BasicDetailScreen_Add_Address {
-	
-	 RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
-		public ValidatableResponse addAddress() throws Exception {
-			Object[][] data = dataProvider.AddAddressAPIData("add_address");
-			ValidatableResponse response = Utilities.AddAddressAPI(data);
+	RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
-//			ValidatableResponse responseCheckApplicationEligibility = Utilities.CheckApplicationEligibilityAPI();
+	//		Start Time
+	long startTime=System.currentTimeMillis();
 
+	public ValidatableResponse addAddress() throws Exception {
+		Object[][] data = dataProvider.AddAddressAPIData("add_address");
+		ValidatableResponse response = Utilities.AddAddressAPI(data);
 
-			//Status Code Validation
-
-			 int responseBody=response.extract().statusCode();
-				Validation.validatingStatusCode(responseBody,200,"addAddress,Validating 200 Success Response");
-		        
-			//Body Validation
-				Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"addAddress,Validating request_id is not null");
-				Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","addAddress,Validating message should be success");
+		//			ValidatableResponse responseCheckApplicationEligibility = Utilities.CheckApplicationEligibilityAPI();
 
 
-//			//Schema Validation
-//				Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuserstatus_200_schema.json")), response.extract().body().asString(), "addAddress,expectedJsonSchema");
+		//Status Code Validation
 
-				
-			return response;
+		int responseBody=response.extract().statusCode();
+		Validation.validatingStatusCode(responseBody,200,"addAddress,Validating 200 Success Response");
 
-		}
+		//Body Validation
+		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"addAddress,Validating request_id is not null");
+		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","addAddress,Validating message should be success");
+
+
+		//			//Schema Validation
+		//				Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//updateuserstatus_200_schema.json")), response.extract().body().asString(), "addAddress,expectedJsonSchema");
+
+		//				End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'mock_User_Positive'  : "+(endTime-startTime)+" milliseconds");
+
+		return response;
+
+	}
 
 }

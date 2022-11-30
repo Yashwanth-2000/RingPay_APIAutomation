@@ -65,23 +65,15 @@ public class Validation {
 
 	public static void assertEquals(String key,String responseValue,String message) throws Exception {
 
-		//	String value=responseValue;
 
 		if(responseValue.equals(key))
 		{
-			//		try {
 
 			Assert.assertEquals(key,responseValue);
 		Utilities.log.info(message);
 		ExtentReporter.extentLoggerPass(message+" - Passed");
 		}
 
-		//		}		 
-		
-			//		catch (Exception e) {
-			//			ExtentReporter.extentLoggerFail(message+" - Failed");
-			//			
-			//		}
 
 		else
 		{

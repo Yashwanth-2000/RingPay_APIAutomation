@@ -24,6 +24,10 @@ public class RegisterUser_OTPSend {
 	static RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
 	public static void validMobileNo_Positive() throws Exception {
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.SendOtpAPIData("otp_200");
 		ValidatableResponse response = Utilities.SendOtpAPI(data);
 
@@ -40,16 +44,25 @@ public class RegisterUser_OTPSend {
 
 
 
-
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_200_schema.json")), response.extract().body().asString(), "validMobileNo_Positive,expectedJsonSchema");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'SendOTP_Positive'  : "+(endTime-startTime)+" milliseconds");
+
 
 	}
 
 	//	    ====================================================
 
 	public static void valid_MobileNo_UserExist_True_Positive() throws Exception {
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
+
 		Object[][] data = dataProvider.SendOtpAPIData("otp_200");
 		ValidatableResponse response = Utilities.SendOtpAPI(data);
 
@@ -65,7 +78,12 @@ public class RegisterUser_OTPSend {
 
 
 		//		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_200_schema.json")), response.extract().body().asString(), "valid_MobileNo_UserExist_True_Positive,expectedJsonSchema");
+		
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'valid_MobileNo_UserExist_True_Positive'  : "+(endTime-startTime)+" milliseconds");
 
+		
 	}
 
 
@@ -73,8 +91,12 @@ public class RegisterUser_OTPSend {
 
 
 	public void mobileNoLessThan10Digit_Negative() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.SendOtpAPIData("mobile_no.lessthan10digits_400");
-		ValidatableResponse response = Utilities.LessThan10DigitAPI(data);
+		ValidatableResponse response = Utilities.SendOtpAPI(data);
 
 		//Status Code Validation
 
@@ -90,14 +112,21 @@ public class RegisterUser_OTPSend {
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_400_schema.json")), response.extract().body().asString(), "mobileNoLessThan10Digit_Negative,expectedJsonSchema");
-
+		
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'mobileNoLessThan10Digit_Negative'  : "+(endTime-startTime)+" milliseconds");
 
 	}
 
 
 	public void mobileNoMoreThan10Digit_Negative() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.SendOtpAPIData("mobile_no.morethan10digits_400");
-		ValidatableResponse response = Utilities.MoreThan10DigitAPI(data);
+		ValidatableResponse response = Utilities.SendOtpAPI(data);
 
 		//Status Code Validation
 
@@ -113,12 +142,20 @@ public class RegisterUser_OTPSend {
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_400_schema.json")), response.extract().body().asString(), "mobileNoMoreThan10Digit_Negative,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'mobileNoMoreThan10Digit_Negative'  : "+(endTime-startTime)+" milliseconds");
 
 	}
+	
 
 	public void specialCharacterInMobileNoField_Negative() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.SendOtpAPIData("specialcharacterinafield_400");
-		ValidatableResponse response = Utilities.SpecialCharacterInFieldAPI(data);
+		ValidatableResponse response = Utilities.SendOtpAPI(data);
 
 		//Status Code Validation
 		int responseBody=response.extract().statusCode();
@@ -133,6 +170,12 @@ public class RegisterUser_OTPSend {
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//otp_400_schema.json")), response.extract().body().asString(), "specialCharacterInMobileNoField_Negative,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'specialCharacterInMobileNoField_Negative'  : "+(endTime-startTime)+" milliseconds");
+
 	}
+
+
 
 }
