@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 
 import com.Datasheet.RingPay_TestData_DataProvider;
+import com.utility.ExtentReporter;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -16,7 +17,10 @@ public class Bnpl_Txn_Transaction_Complete {
 
 
 	public void transactionComplete() throws Exception {
-//		long startTime=System.currentTimeMillis();
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.TxnCompleteAPIData("txn_complete");
 		ValidatableResponse response = Utilities.TransactionCompleteAPI(data);
 
@@ -34,6 +38,12 @@ public class Bnpl_Txn_Transaction_Complete {
 
 		//Schema Validation
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//transaction_complete_200_schema.json")), response.extract().body().asString(), "transactionComplete,expectedJsonSchema");
+		
+
+		//		End Time
+			long endTime=System.currentTimeMillis();
+			ExtentReporter.extentLogger("Time Stamp", "API RunTime 'transactionComplete'  : "+(endTime-startTime)+" milliseconds");
+
 		
 	}
 	

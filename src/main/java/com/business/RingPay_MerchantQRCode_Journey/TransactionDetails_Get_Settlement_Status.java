@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.apache.commons.io.FileUtils;
 
+import com.Datasheet.RingPay_TestData_DataProvider;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -11,10 +12,12 @@ import io.restassured.response.ValidatableResponse;
 
 public class TransactionDetails_Get_Settlement_Status {
 	
-	
+	RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 	
 	public void getSettlementStatus() throws Exception {
-		ValidatableResponse response = Utilities.GetSettlementAPI();
+		
+		Object[][] data = dataProvider.TxnCompleteAPIData("txn_complete");
+		ValidatableResponse response = Utilities.GetSettlementAPI(data);
 
 
 		//Status Code Validation

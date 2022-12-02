@@ -23,6 +23,10 @@ public class BasicDetailScreen_Update_User_Status {
 	RingPay_TestData_DataProvider dataProvider = new RingPay_TestData_DataProvider();
 
 	public void updateUserStatus_Positive() throws Exception {
+		
+//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.UpdateUserStatusAPIData("update_user_200");
 		ValidatableResponse response = Utilities.UpdateUserStatusAPI(data);
 
@@ -38,16 +42,14 @@ public class BasicDetailScreen_Update_User_Status {
 		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","updateUserStatus_Positive,Validating message should be success");
 		Validation.assertEquals(response.extract().body().jsonPath().get("data.user.onboarding_stage"),"VERIFIED","updateUserStatus_Positive,Validating message should be success");
 
-		
 
 		//Schema Validation
-		//		String expectedJsonSchema = FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//update_user_status_200_schema.json"));
-		//		assertThat(response.extract().body().asString(), JsonSchemaValidator.matchesJsonSchema(expectedJsonSchema));
-		//		Utilities.log.info("updateUserStatus_200 , expectedJsonSchema");
-		//		ExtentReporter.extentLogger("updateUserStatus_200", "updateUserStatus_200,expectedJsonSchema");
 	
 //		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//update_user_status_200_schema.json")), response.extract().body().asString(), "updateUserStatus_Positive,expectedJsonSchema");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'mock_User_Positive'  : "+(endTime-startTime)+" milliseconds");
 
 
 	}

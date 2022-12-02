@@ -6,6 +6,7 @@ import org.apache.commons.io.FileUtils;
 
 import com.Datasheet.RingPay_TestData_DataProvider;
 import com.excel.ExcelWriteData;
+import com.utility.ExtentReporter;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -17,7 +18,10 @@ public class Bnpl_Txn_Transaction_Initiate {
 
 
 	public static ValidatableResponse transactionInitiate_Positive() throws Exception {
-		
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		String filePath = System.getProperty("user.dir")+ "\\src\\main\\java\\com\\Datasheet\\RingPayAPI_TestData_stage.xlsx";
 
 		//		long startTime=System.currentTimeMillis();
@@ -49,10 +53,15 @@ public class Bnpl_Txn_Transaction_Initiate {
 		//Schema Validation 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//transaction_initiated_200_schema.json")), response.extract().body().asString(), "transactionInitiate_Positive,expectedJsonSchema");
 
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'transactionInitiate_Positive'  : "+(endTime-startTime)+" milliseconds");
+
+
 		return response;
-		
+
 	}
-	
+
 
 	public void productValueEmptyField_Negative() throws Exception {
 		//		long startTime=System.currentTimeMillis();

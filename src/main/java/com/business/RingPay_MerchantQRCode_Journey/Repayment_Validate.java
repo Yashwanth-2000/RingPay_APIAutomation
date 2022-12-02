@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 
 import com.Datasheet.RingPay_TestData_DataProvider;
+import com.utility.ExtentReporter;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -16,7 +17,10 @@ public class Repayment_Validate {
 
 
 	public void validate() throws Exception {
-		//		long startTime=System.currentTimeMillis();
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		Object[][] data = dataProvider.ValidateAPIData("validate");
 		ValidatableResponse response = Utilities.ValidateAPI(data);
 
@@ -30,9 +34,11 @@ public class Repayment_Validate {
 
 		//Schema Validation
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//validate_200_schema.json")), response.extract().body().asString(), "PaymentValidate,expectedJsonSchema");
-		//		long endTime=System.currentTimeMillis();
-		//		
-		//		ExtentReporter.extentLogger("Time Stamp", "Api Time 'mock_User_200'  : "+(endTime-startTime)+" milliseconds");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'validateAPI'  : "+(endTime-startTime)+" milliseconds");
+
 	}
 
 

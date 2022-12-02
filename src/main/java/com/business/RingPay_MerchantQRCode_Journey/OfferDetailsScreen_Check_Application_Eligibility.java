@@ -4,6 +4,7 @@ import java.io.File;
 
 import org.apache.commons.io.FileUtils;
 
+import com.utility.ExtentReporter;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -13,6 +14,8 @@ public class OfferDetailsScreen_Check_Application_Eligibility {
 
 	public void OfferDetailsScreen_CheckApplicationEligibility_Positive() throws Exception {
 
+		//		Start Time
+		long startTime=System.currentTimeMillis();
 
 		//			Object[][] data = dataProvider.UpdateUserStatusAPIData("update_user_200");
 		ValidatableResponse response = Utilities.CheckApplicationEligibilityAfterAddAddressAPI();
@@ -35,6 +38,10 @@ public class OfferDetailsScreen_Check_Application_Eligibility {
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//offer_details_screen_check_application_eligibility_200_schema.json")), response.extract().body().asString(), "OfferDetailsScreen_CheckApplicationEligibility_Positive,expectedJsonSchema");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'OfferDetailsScreen_CheckApplicationEligibility_Positive'  : "+(endTime-startTime)+" milliseconds");
 
 
 	}

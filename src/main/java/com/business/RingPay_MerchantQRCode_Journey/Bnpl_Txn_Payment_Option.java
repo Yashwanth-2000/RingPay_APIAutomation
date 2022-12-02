@@ -5,6 +5,7 @@ import java.io.File;
 import org.apache.commons.io.FileUtils;
 
 import com.Datasheet.RingPay_TestData_DataProvider;
+import com.utility.ExtentReporter;
 import com.utility.Utilities;
 import com.utility.Validation;
 
@@ -16,6 +17,10 @@ public class Bnpl_Txn_Payment_Option {
 
 
 	public static ValidatableResponse paymentOption_Positive() throws Exception {
+
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 
 		Object[][] data = dataProvider.PaymentOptionAPIData("paymentoption");
 		ValidatableResponse response = Utilities.PaymentOptionAPI(data);
@@ -30,15 +35,20 @@ public class Bnpl_Txn_Payment_Option {
 		Validation.assertRequest_IdNotNullBodyValidation(response.extract().body().jsonPath().get("request_id"),"paymentOption_Positive,Validating request_id is not null");
 		Validation.assertEquals(response.extract().body().jsonPath().get("message"),"Success","paymentOption_PositivepaymentOption_Positive,Validating message should be success");
 		Validation.assertTrue(response.extract().body().jsonPath().get("success"), "paymentOption_Positive,Validating success Should be true");
-		
-		String asssssss = response.extract().body().jsonPath().get("data.allow_modes.mode[0]");
-		System.out.println("aaaaaaaaaaaaa " +asssssss);
-		Validation.assertEquals(asssssss,"BNPL_CREDIT","paymentOption_PositivepaymentOption_Positive,Validating message should be success");
+
+		String bnpl = response.extract().body().jsonPath().get("data.allow_modes.mode[0]");
+		System.out.println("bnpl " +bnpl);
+		Validation.assertEquals(bnpl,"BNPL_CREDIT","paymentOption_PositivepaymentOption_Positive,Validating message should be success");
 
 
 		//Schema Validation
 
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//payment_option_200_schema.json")), response.extract().body().asString(), "paymentOption_Positive,expectedJsonSchema");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'paymentOption_Positive'  : "+(endTime-startTime)+" milliseconds");
+
 
 		return response;
 
@@ -67,7 +77,7 @@ public class Bnpl_Txn_Payment_Option {
 		return response;
 
 	}
-	
+
 	public static ValidatableResponse actualAmountFieldIsEmpty_Negative() throws Exception {
 
 		Object[][] data = dataProvider.PaymentOptionAPIData("actualamountfieldempty");
@@ -115,8 +125,8 @@ public class Bnpl_Txn_Payment_Option {
 		return response;
 
 	}
-	
-	
+
+
 	public static ValidatableResponse qr_CodeFieldWithIncorrectVPA_Negative() throws Exception {
 
 		Object[][] data = dataProvider.PaymentOptionAPIData("qr_codefieldwithinvalidvpa");
@@ -140,7 +150,7 @@ public class Bnpl_Txn_Payment_Option {
 		return response;
 
 	}
-	
+
 	public static ValidatableResponse qr_CodeFieldWithInvalidCode_Negative() throws Exception {
 
 		Object[][] data = dataProvider.PaymentOptionAPIData("qr_codefieldwithinvalidcode");
@@ -164,6 +174,6 @@ public class Bnpl_Txn_Payment_Option {
 		return response;
 
 	}
-	
+
 
 }

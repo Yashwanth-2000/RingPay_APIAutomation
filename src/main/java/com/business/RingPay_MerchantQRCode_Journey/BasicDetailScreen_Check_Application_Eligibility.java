@@ -23,6 +23,9 @@ public class BasicDetailScreen_Check_Application_Eligibility {
 
 	public static ValidatableResponse checkApplicationEligibility_Positive() throws Exception {
 
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
 		//			Object[][] data = dataProvider.UpdateUserStatusAPIData("update_user_200");
 		ValidatableResponse response = Utilities.CheckApplicationEligibilityAPI();
 
@@ -45,15 +48,22 @@ public class BasicDetailScreen_Check_Application_Eligibility {
 		Validation.assertEqualsStage(response.extract().body().jsonPath().get("data.stage"),"address_details_pending","acceptance_pending","complete","checkApplicationEligibility_Positive,Validating stage should be acceptance_pending");
 		Validation.assertEquals(response.extract().body().jsonPath().get("data.segment"),"SEGMENT_2","checkApplicationEligibility_Positive,Validating segment should be SEGMENT_2");
 
+//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'checkApplicationEligibility_Positive'  : "+(endTime-startTime)+" milliseconds");
+
 
 		return response;
 
 	}
 
-	
+
 	public void checkApplicationEligibilitySchemaValidation_Positive() throws Exception {
 
-		
+		//		Start Time
+		long startTime=System.currentTimeMillis();
+
+
 		ValidatableResponse response = Utilities.CheckApplicationEligibilityAPI();
 
 
@@ -75,16 +85,21 @@ public class BasicDetailScreen_Check_Application_Eligibility {
 		Validation.assertEqualsStage(response.extract().body().jsonPath().get("data.stage"),"address_details_pending","acceptance_pending","complete","checkApplicationEligibility_Positive,Validating stage should be acceptance_pending");
 		Validation.assertEquals(response.extract().body().jsonPath().get("data.segment"),"SEGMENT_2","checkApplicationEligibility_Positive,Validating segment should be SEGMENT_2");
 
-		
+
 		//Schema Validation
 		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//check_application_eligibility_200_schema.json")), response.extract().body().asString(), "checkApplicationEligibility_Positive,expectedJsonSchema");
 
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'checkApplicationEligibilitySchemaValidation_Positive'  : "+(endTime-startTime)+" milliseconds");
+
 	}
 
-	
-	
+
 	public void checkApplicationEligibilityAfterAddAddress_Positive() throws Exception {
 
+		//		Start Time
+		long startTime=System.currentTimeMillis();
 
 		//			Object[][] data = dataProvider.UpdateUserStatusAPIData("update_user_200");
 		ValidatableResponse response = Utilities.CheckApplicationEligibilityAPI();
@@ -112,6 +127,10 @@ public class BasicDetailScreen_Check_Application_Eligibility {
 		//Schema Validation
 
 		//		Validation.assertSchemaValidation(FileUtils.readFileToString(new File(System.getProperty("user.dir")+"//TestData//check_application_eligibilityAfterAddAddress_200_schema.json")), response.extract().body().asString(), "checkApplicationEligibility_Positive,expectedJsonSchema");
+
+		//		End Time
+		long endTime=System.currentTimeMillis();
+		ExtentReporter.extentLogger("Time Stamp", "API RunTime 'checkApplicationEligibilityAfterAddAddress_Positive'  : "+(endTime-startTime)+" milliseconds");
 
 
 	}
